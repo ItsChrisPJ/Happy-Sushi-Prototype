@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos</title>
+  <meta name="description" content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local.">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Glass Navbar -->
+  <header class="navbar">
+    <a href="#" class="nav-brand">
+      <img src="assets/logo.png" alt="Happy Sushi Lampa Logo" class="nav-logo-img">
+      <div class="brand-text">
+        <span class="brand-title">HAPPY SUSHI</span>
+        <span class="brand-subtitle">Lampa · El Mejor de la Zona</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active">Inicio</a></li>
+      <li><a href="#promos" class="nav-link">Promociones</a></li>
+      <li><a href="#menu" class="nav-link">Menú Completo</a></li>
+      <li><a href="#builder" class="nav-link">Arma tu Roll</a></li>
+      <li><a href="#zonas" class="nav-link">Despacho</a></li>
+      <li><a href="#opiniones" class="nav-link">Opiniones (5.0<span data-picto="star"></span>)</a></li>
+    </ul>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/56971223025" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">
+        <span data-picto="phone"></span> +569 7122 3025
+      </a>
+      <button class="cart-btn" id="open-cart-btn" aria-label="Abrir Carrito">
+        <span><span data-picto="cart"></span> Pedido</span>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div id="live-status-container"></div>
+        <div class="hero-tag"><span data-picto="fire"></span> 100% Frescos & Recién Fritos en Lampa</div>
+        <h1 class="hero-title">
+          CRUJIENTES, CALENTITOS 
+          <span>Y CONTUNDENTES</span>
+        </h1>
+        <p class="hero-desc">
+          Disfruta del auténtico sabor que conquista <strong>Arturo Prat 1377</strong>. Rolls artesanales, promos gigantes para compartir, sushiburgers y bowls. Despacho rápido a <strong>todo Lampa y alrededores</strong>.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary"><span data-picto="takeout"></span> Ver Promos & Pedir</a>
+          <button class="btn btn-gold" id="open-builder-hero-btn"><span data-picto="tools"></span> Arma tu Roll / Burger</button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">5.0 <span data-picto="star"></span></span>
+            <span class="stat-label">Google Maps (100% Calidad)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">$7.500</span>
+            <span class="stat-label">Promo 20 Pzs Desde</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">12:00</span>
+            <span class="stat-label">Horario Lun - Dom</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-badge badge-1">
+          <span class="badge-icon"><span data-picto="star"></span></span>
+          <div class="badge-text">
+            <h4>Promo 50 Pzs</h4>
+            <p>¡Best Seller $18.500!</p>
+          </div>
+        </div>
+        
+        <div class="hero-img-container">
+          <img src="assets/hero.jpg" alt="Plato Gourmet de Happy Sushi Lampa" class="hero-img">
+        </div>
+
+        <div class="floating-badge badge-2">
+          <span class="badge-icon"><span data-picto="rocket"></span></span>
+          <div class="badge-text">
+            <h4>Envío Directo</h4>
+            <p>Pide por WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Menu & Promos Section -->
+    <section class="section" id="menu">
+      <div class="section-header" id="promos">
+        <span class="section-tag">Nuestra Carta Oficial</span>
+        <h2 class="section-title font-heading">EXPLORA EL MENÚ DE <span class="text-red">HAPPY SUSHI</span></h2>
+        <p class="section-desc">Selecciona tu categoría favorita o busca tus ingredientes preferidos. Cada pieza está preparada en el momento con ingredientes frescos de primera calidad.</p>
+      </div>
+
+      <div class="menu-controls">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-tab active" data-category="all">
+            <span data-picto="all"></span> Todo el Menú
+          </button>
+          <button class="filter-tab" data-category="promos">
+            <span data-picto="promos"></span> Promociones (20 a 100 Pzs)
+          </button>
+          <button class="filter-tab" data-category="entradas">
+            <span data-picto="entradas"></span> Entradas & Fritos
+          </button>
+          <button class="filter-tab" data-category="sushiburger">
+            <span data-picto="sushiburger"></span> Sushiburgers & Handrolls
+          </button>
+          <button class="filter-tab" data-category="gohan">
+            <span data-picto="gohan"></span> Gohan Bowls
+          </button>
+          <button class="filter-tab" data-category="sinarroz">
+            <span data-picto="sinarroz"></span> Rolls Sin Arroz
+          </button>
+        </div>
+
+        <div class="search-bar-container">
+          <span class="search-icon"><span data-picto="search"></span></span>
+          <input type="text" id="menu-search" class="search-input" placeholder="Buscar promo, camarón, salmón, acevichada, queso..." autocomplete="off">
+        </div>
+      </div>
+
+      <div class="menu-grid" id="menu-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Custom Roll Builder Banner -->
+    <section class="section builder-section" id="builder">
+      <div class="builder-banner">
+        <div class="builder-info">
+          <span class="section-tag" style="color: var(--accent-gold);">¡Tu Gusto, Tus Reglas!</span>
+          <h2 class="font-heading">CREA TU <span class="text-red">ROLL, SUSHIBURGER</span> O HANDROLL IDEAL</h2>
+          <p>¿Tienes un antojo específico? Combina tus envolturas favoritas (Panko frito, Palta, Salmón, Queso), elige tu proteína (Pollo teriyaki, Camarón apanado, Churrasco, Kanikama) y agrégale tus ingredientes extras y salsas artesanales.</p>
+        </div>
+        <div class="builder-action">
+          <button class="btn btn-gold" id="open-builder-btn" style="padding: 18px 36px; font-size: 16px;">
+            <span data-picto="tools"></span> Abrir Creador Interactivo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivery & Coverage Section -->
+    <section class="section" id="zonas">
+      <div class="section-header">
+        <span class="section-tag">Zonas de Reparto</span>
+        <h2 class="section-title font-heading">LLEGAMOS CALENTITOS A TODO <span class="text-red">LAMPA</span></h2>
+        <p class="section-desc">Selecciona tu sector en el carrito al finalizar tu pedido. Si estás cerca de nuestra central en Arturo Prat 1377, ¡puedes retirar sin costo!</p>
+      </div>
+
+      <div class="coverage-grid">
+        <div class="coverage-map-card">
+          <h3 class="font-heading" style="font-size: 24px; margin-bottom: 20px; color: white;"><span data-picto="location"></span> Sectores de Cobertura & Tarifas</h3>
+          <ul class="zone-list">
+            <li class="zone-item free">
+              <span class="zone-name"><span data-picto="takeout"></span> Retiro en Local (Arturo Prat 1377, Lampa)</span>
+              <span class="zone-price">$0 (Gratis)</span>
+            </li>
+            <li class="zone-item">
+              <span class="zone-name"><span data-picto="delivery"></span> Despacho en Lampa</span>
+              <span class="zone-price">$1.500 <small style="font-size: 11px; color: var(--text-muted); display: block;">¡Gratis sobre $20.000!</small></span>
+            </li>
+          </ul>
+          <div style="margin-top: 24px; padding: 16px; background: rgba(255, 183, 3, 0.1); border: 1px solid var(--accent-gold); border-radius: var(--radius-sm); font-size: 13px; color: #fff;">
+            <span data-picto="info"></span> <strong>Dato:</strong> Al enviar tu pedido por WhatsApp, nuestro sistema calculará exactamente el total incluyendo tu sector para que el repartidor llegue directo a tu puerta.
+          </div>
+        </div>
+
+        <div class="coverage-info">
+          <div style="background: var(--bg-tertiary); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); margin-bottom: 20px;">
+            <h4 class="font-heading" style="font-size: 24px; color: var(--brand-red-glow); margin-bottom: 12px;"><span data-picto="clock"></span> HORARIOS DE ATENCIÓN</h4>
+            <p style="font-size: 14px; color: #fff; margin-bottom: 6px;"><strong>Lunes a Jueves:</strong> 12:00 a 22:10 hrs</p>
+            <p style="font-size: 14px; color: #fff; margin-bottom: 6px;"><strong>Viernes y Sábado:</strong> 12:00 a 22:40 hrs</p>
+            <p style="font-size: 14px; color: #fff; margin-bottom: 12px;"><strong>Domingo:</strong> 17:00 a 21:30 hrs</p>
+            <div style="background: rgba(46, 213, 115, 0.1); border: 1px solid #2ed573; padding: 10px 14px; border-radius: var(--radius-sm); font-size: 12px; color: #2ed573; line-height: 1.4;">
+              <strong><span data-picto="card"></span> Tarjetas Alimento:</strong> ¡Aceptamos PLUXEE y JUNAEB todos los días DESDE las 17:00 hrs!
+            </div>
+          </div>
+          <div style="background: var(--bg-tertiary); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <h4 class="font-heading" style="font-size: 24px; color: var(--accent-gold); margin-bottom: 12px;"><span data-picto="chopsticks"></span> ¿POR QUÉ SOMOS LOS MEJORES?</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--text-main);">
+              <li><span data-picto="check"></span> <strong>Recién Fritos:</strong> El tempura y panko salen crujientes directo a la caja.</li>
+              <li><span data-picto="check"></span> <strong>Porciones Contundentes:</strong> Rolls grandes con arto relleno y salmón fresco.</li>
+              <li><span data-picto="check"></span> <strong>Atención 10/10:</strong> Calificados con 5.0 estrellas por nuestros vecinos en Google Maps.</li>
+            </ul>
+          </div>
+          <div style="background: var(--bg-tertiary); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-light); margin-top: 20px;">
+            <h4 class="font-heading" style="font-size: 20px; color: white; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span data-picto="location"></span> NUESTRA UBICACIÓN EN LAMPA</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Arturo Prat 1377, 9380208 Lampa, Región Metropolitana (A pasos del centro)</p>
+            <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-light); height: 220px;">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3335.7!2d-70.875!3d-33.284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662b92a2a0d9b4b%3A0x0!2sArturo%20Prat%201377%2C%20Lampa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <a href="https://maps.google.com/?q=Arturo+Prat+1377,+Lampa,+Región+Metropolitana" target="_blank" class="btn btn-outline" style="width: 100%; margin-top: 14px; justify-content: center; font-size: 13px;">
+              <span data-picto="rocket"></span> Abrir en Google Maps / Waze
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof / Reviews Section -->
+    <section class="section" id="opiniones">
+      <div class="section-header">
+        <span class="section-tag">Prueba Social</span>
+        <h2 class="section-title font-heading">LO QUE DICEN EN <span class="text-red">GOOGLE MAPS</span></h2>
+        <p class="section-desc">Calificación perfecta de <strong>5.0 <span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span></strong> basada en la experiencia de nuestros clientes reales en Lampa.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars"><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span> 5.0</div>
+          <p class="review-text">"Muy ricos y contundentes. Y el precio súper bueno. ¡Totalmente recomendados en Lampa!"</p>
+          <div class="review-author">
+            <div class="author-avatar">FR</div>
+            <div class="author-info">
+              <h4>Francisca Rubio (Fran)</h4>
+              <span>Local Guide · 17 opiniones en Google</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars"><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span> 5.0</div>
+          <p class="review-text">"El producto es rico y de calidad, se nota que son frescos. La atención 10/10. ¡Felicidades!"</p>
+          <div class="review-author">
+            <div class="author-avatar">JL</div>
+            <div class="author-info">
+              <h4>Javier Lara</h4>
+              <span>Cliente Verificado en Google Maps</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars"><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span><span data-picto="star"></span> 5.0</div>
+          <p class="review-text">"Comida: 5, Servicio: 5, Ambiente: 5. No sé qué más puedas necesitar. Excelente local."</p>
+          <div class="review-author">
+            <div class="author-avatar">AV</div>
+            <div class="author-info">
+              <h4>Agustin Vasquez</h4>
+              <span>Cliente Verificado en Google Maps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="assets/logo.png" alt="Happy Sushi Logo" class="footer-logo-img">
+          <h3 class="font-heading" style="font-size: 26px; color: white; margin: 0;">HAPPY SUSHI LAMPA</h3>
+        </div>
+        <p>El mejor sushi de la zona, preparado con pasión y frescura. Llevando calidad gourmet a toda la comunidad de Lampa.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-heading">Contacto & Ubicación</h4>
+        <ul>
+          <li><span data-picto="location"></span> <strong>Dirección:</strong> Arturo Prat 1377, Lampa, RM</li>
+          <li><span data-picto="phone"></span> <strong>WhatsApp:</strong> +56 9 7122 3025</li>
+          <li><span data-picto="delivery"></span> <strong>Sectores:</strong> Despacho en Lampa y Retiro en Local</li>
+          <li><span data-picto="info"></span> <a href="https://instagram.com/happysushilampa" target="_blank" style="color: var(--accent-gold); text-decoration: none;"><strong>Instagram:</strong> @happysushilampa</a></li>
+          <li><span data-picto="info"></span> <a href="https://facebook.com" target="_blank" style="color: var(--accent-gold); text-decoration: none;"><strong>Facebook:</strong> HAPPY SUSHI LAMPA</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="font-heading">Horarios de Reparto</h4>
+        <ul>
+          <li><strong>Lun - Jue:</strong> 12:00 - 22:10</li>
+          <li><strong>Vie - Sáb:</strong> 12:00 - 22:40</li>
+          <li><strong>Domingo:</strong> 17:00 - 21:30</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 HAPPY SUSHI LAMPA. Todos los derechos reservados. | Diseñado y desarrollado como prototipo web premium.</p>
+    </div>
+  </footer>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="font-heading">TU PEDIDO <span class="text-red">HAPPY SUSHI</span></h3>
+        <button class="btn-close" id="close-cart-btn" aria-label="Cerrar Carrito">&times;</button>
+      </div>
+
+      <div class="cart-body">
+        <div id="cart-items-container" class="cart-items">
+          <!-- Cart items injected by JS -->
+          <div class="cart-empty">
+            <div class="cart-empty-icon"><span data-picto="chopsticks"></span></div>
+            <p>Tu pedido está vacío aún.</p>
+            <p style="font-size: 13px;">¡Agrega unas promos crujientes o sushiburgers para comenzar!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-footer">
+        <div class="form-group">
+          <label class="form-label" for="delivery-zone"><span data-picto="location"></span> Zona de Reparto en Lampa:</label>
+          <select id="delivery-zone" class="form-select">
+            <option value="1500" data-name="Despacho en Lampa" data-minfree="20000">Despacho en Lampa ($1.500 | Gratis > $20.000)</option>
+            <option value="0" data-name="Retiro en Local">Retiro en Local - Arturo Prat 1377 ($0)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="payment-method"><span data-picto="card"></span> Medio de Pago:</label>
+          <select id="payment-method" class="form-select">
+            <option value="Transferencia Bancaria">Transferencia Bancaria (Ver datos)</option>
+            <option value="Débito / Crédito">Débito / Crédito (Redcompra al recibir)</option>
+            <option value="Efectivo al Recibir">Efectivo al Recibir</option>
+            <option value="JUNAEB / PLUXEE">JUNAEB / PLUXEE (Válido DESDE las 17:00 hrs)</option>
+          </select>
+        </div>
+
+        <div id="transfer-info-box" class="transfer-box" style="display: block;">
+          <div class="transfer-title"><span data-picto="bank"></span> Datos para Transferir:</div>
+          <p class="transfer-detail"><strong>Banco:</strong> Banco Estado (Cuenta RUT)</p>
+          <p class="transfer-detail"><strong>RUT:</strong> 76.543.210-K</p>
+          <p class="transfer-detail"><strong>Nombre:</strong> Happy Sushi Lampa SPA</p>
+          <p class="transfer-detail"><strong>Tipo:</strong> Cuenta Vista / RUT</p>
+          <p class="transfer-detail"><strong>Correo:</strong> pagos@happysushilampa.cl</p>
+          <p class="transfer-note"><span data-picto="info"></span> Recuerda enviar tu comprobante en la conversación de WhatsApp al confirmar el pedido.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customer-name"><span data-picto="info"></span> A nombre de (Quién pide / retira):</label>
+          <input type="text" id="customer-name" class="form-input" placeholder="Ej: Juan Pérez" autocomplete="off">
+        </div>
+
+        <div class="form-group" id="address-group">
+          <label class="form-label" id="address-label" for="customer-address"><span data-picto="house"></span> Dirección exacta y notas:</label>
+          <input type="text" id="customer-address" class="form-input" placeholder="Ej: Calle Principal 123, Casa 4..." autocomplete="off">
+        </div>
+
+        <div class="price-summary">
+          <div class="summary-row">
+            <span>Subtotal Productos:</span>
+            <span id="cart-subtotal">$0</span>
+          </div>
+          <div class="summary-row">
+            <span>Costo de Despacho:</span>
+            <span id="cart-delivery">$1.500</span>
+          </div>
+          <div class="summary-row total">
+            <span>TOTAL A PAGAR:</span>
+            <span id="cart-total">$1.500</span>
+          </div>
+        </div>
+
+        <button class="btn-whatsapp" id="btn-send-whatsapp">
+          <span><span data-picto="rocket"></span> ENVIAR PEDIDO A WHATSAPP</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Wizard "Crea Tu Roll / Sushiburger" -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="font-heading"><span data-picto="tools"></span> CREA TU <span class="text-gold">ANTOJO IDEAL</span></h3>
+        <button class="btn-close" id="close-modal-btn" aria-label="Cerrar Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="wizard-step">
+          <div class="wizard-title">
+            <span>PASO 1: ELIGE QUÉ QUEREMOS ARMAR</span>
+            <span>Selección base</span>
+          </div>
+          <div class="options-grid" id="builder-type-grid">
+            <button class="option-btn selected" data-type="roll" data-price="4500" data-name="Roll Ideal (8 Pzs)">
+              Roll Ideal
+              <span class="option-price">$4.500</span>
+            </button>
+            <button class="option-btn" data-type="sushiburger" data-price="8000" data-name="Sushiburger a tu Gusto">
+              Sushiburger
+              <span class="option-price">$8.000</span>
+            </button>
+            <button class="option-btn" data-type="gohan" data-price="6500" data-name="Gohan a tu Gusto">
+              Gohan Bowl
+              <span class="option-price">$6.500</span>
+            </button>
+            <button class="option-btn" data-type="handroll" data-price="3500" data-name="Handroll a tu Gusto">
+              Handroll (1x)
+              <span class="option-price">$3.500</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="wizard-step" id="step-envoltura">
+          <div class="wizard-title">
+            <span>PASO 2: ELIGE ENVOLTURA / BASE</span>
+            <span>1 opción</span>
+          </div>
+          <div class="options-grid" id="builder-wrap-grid">
+            <button class="option-btn selected" data-wrap="Panko Frito Crujiente">Panko Frito</button>
+            <button class="option-btn" data-wrap="Palta Fresca">Env. Palta</button>
+            <button class="option-btn" data-wrap="Queso Crema">Env. Queso</button>
+            <button class="option-btn" data-wrap="Sésamo Tostado">Env. Sésamo</button>
+            <button class="option-btn" data-wrap="Alga Nori">Env. Nori</button>
+            <button class="option-btn" data-wrap="Salmón Premium (+1000)" data-extra="1000">Env. Salmón (+$1.000)</button>
+          </div>
+        </div>
+
+        <div class="wizard-step">
+          <div class="wizard-title">
+            <span>PASO 3: ELIGE PROTEÍNA PRINCIPAL</span>
+            <span>1 opción (*Salmón +$1.000)</span>
+          </div>
+          <div class="options-grid" id="builder-protein-grid">
+            <button class="option-btn selected" data-protein="Pollo Teriyaki">Pollo Teriyaki</button>
+            <button class="option-btn" data-protein="Pollo">Pollo</button>
+            <button class="option-btn" data-protein="Pollo Apanado">Pollo Apanado</button>
+            <button class="option-btn" data-protein="Camarón">Camarón</button>
+            <button class="option-btn" data-protein="Camarón Apanado">Camarón Apanado</button>
+            <button class="option-btn" data-protein="Churrasco">Churrasco</button>
+            <button class="option-btn" data-protein="Kanikama">Kanikama</button>
+            <button class="option-btn" data-protein="Kanikama Apanado">Kanikama Apanado</button>
+            <button class="option-btn" data-protein="Salmón Fresco (+1000)" data-extra="1000">Salmón (+$1.000)</button>
+          </div>
+        </div>
+
+        <div class="wizard-step">
+          <div class="wizard-title">
+            <span>PASO 4: ELIGE AGREGADOS (2 A 4 SEGÚN PRODUCTO)</span>
+            <span>Queso crema, palta, cebollín...</span>
+          </div>
+          <div class="options-grid" id="builder-extras-grid">
+            <button class="option-btn selected" data-extra-item="Queso Crema">Queso Crema</button>
+            <button class="option-btn selected" data-extra-item="Palta">Palta</button>
+            <button class="option-btn" data-extra-item="Cebollín">Cebollín</button>
+            <button class="option-btn" data-extra-item="Ciboulette">Ciboulette</button>
+            <button class="option-btn" data-extra-item="Champiñón">Champiñón</button>
+            <button class="option-btn" data-extra-item="Pimentón">Pimentón</button>
+            <button class="option-btn" data-extra-item="Palmito">Palmito</button>
+            <button class="option-btn" data-extra-item="Aceituna">Aceituna</button>
+          </div>
+        </div>
+
+        <div class="wizard-step">
+          <div class="wizard-title">
+            <span>PASO 5: SALSA & ADEREZOS</span>
+            <span>¡Salsa verde y soya incluidas en tu pedido!</span>
+          </div>
+          <div class="options-grid" id="builder-sauce-grid">
+            <button class="option-btn selected" data-sauce="Salsa Acevichada Casera">Salsa Acevichada</button>
+            <button class="option-btn" data-sauce="Salsa Teriyaki / Unagi">Teriyaki Dulce</button>
+            <button class="option-btn" data-sauce="Spicy Mayo Suave">Spicy Mayo</button>
+            <button class="option-btn" data-sauce="Salsa Soya Sésamo">Soya Tradicional</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div>
+          <span style="font-size: 12px; color: var(--text-muted); display: block; text-transform: uppercase;">Precio Calculado:</span>
+          <span class="modal-price-calc" id="modal-total-price">$4.500</span>
+        </div>
+        <button class="btn btn-primary" id="btn-add-custom-roll" style="padding: 14px 28px; font-size: 15px;">
+          <span data-picto="plus"></span> AGREGAR A MI PEDIDO
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
