@@ -431,7 +431,42 @@ function setupEventListeners() {
 
   // Indicador de horario en vivo
   updateLiveStoreStatus();
-  setInterval(updateLiveStoreStatus, 60000); // Revisar cada 1 minuto
+  setInterval(updateLiveStoreStatus, 60000);
+
+  // --- ANIMACIONES ON SCROLL (AOS) ---
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('aos-animate');
+      }
+    });
+  }, observerOptions);
+
+  // Seleccionamos todos los bloques principales para animarlos
+  const elementsToAnimate = document.querySelectorAll(`
+    .hero-content > *,
+    .hero-visual > *,
+    .section-header > *,
+    .builder-info > *,
+    .builder-action,
+    .coverage-map-card,
+    .coverage-info > div,
+    .footer-col
+  `);
+
+  elementsToAnimate.forEach((el, index) => {
+    el.classList.add('aos-init');
+    // Pequeño retraso para elementos hermanos
+    if (index % 3 === 1) el.classList.add('aos-delay-100');
+    if (index % 3 === 2) el.classList.add('aos-delay-200');
+    scrollObserver.observe(el);
+  });
 }
 
 // Renderizado del Menú según categoría y búsqueda
@@ -460,12 +495,13 @@ function renderMenu() {
     return;
   }
 
-  filtered.forEach(item => {
+  filtered.forEach((item, index) => {
     const badgeHTML = item.badge ? `<div class="card-badge ${item.badgeType || ''}">${item.badge}</div>` : '';
     const formattedPrice = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(item.price);
 
     const card = document.createElement('div');
-    card.className = 'menu-card';
+    card.className = 'menu-card card-animate';
+    card.style.animationDelay = `${(index % 10) * 0.1}s`;
     card.innerHTML = `
       ${badgeHTML}
       <div class="card-img-wrapper">
@@ -854,6 +890,7 @@ function sendOrderToWhatsApp() {
   }
   msg += `*Medio de Pago:* ${paymentMethod}\n\n`;
   msg += `¡Muchas gracias! Quedo atento a la confirmación de mi pedido.`;
+
 
   // Codificar para URL
   const encodedMsg = encodeURIComponent(msg);
