@@ -500,19 +500,20 @@ function renderMenu() {
     const formattedPrice = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(item.price);
 
     const card = document.createElement('div');
-    card.className = 'menu-card card-animate';
+    card.className = 'bento-box glass-panel card-animate';
     card.style.animationDelay = `${(index % 10) * 0.1}s`;
+    card.style.padding = '0'; // Override bento-box padding for image
     card.innerHTML = `
       ${badgeHTML}
       <div class="card-img-wrapper">
         <img src="${item.img}" alt="${item.title}" class="card-img" loading="lazy">
       </div>
-      <div class="card-body">
+      <div class="card-body" style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
         <h3 class="card-title">${item.title}</h3>
         <p class="card-desc">${item.desc}</p>
         <div class="card-footer">
           <span class="card-price">${formattedPrice}</span>
-          <button class="btn-add" data-id="${item.id}" aria-label="Agregar al carrito">
+          <button class="glass-btn glass-btn-primary btn-add" data-id="${item.id}" aria-label="Agregar al carrito" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none;">
             <span data-picto="plus"></span>
           </button>
         </div>

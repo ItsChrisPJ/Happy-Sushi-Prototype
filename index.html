@@ -9,75 +9,79 @@
 </head>
 <body>
 
-  <!-- Glass Navbar -->
-  <header class="navbar">
+  <!-- Aurora Background -->
+  <div class="aurora-bg">
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+  </div>
+
+  <!-- Floating Glass Navbar -->
+  <header class="navbar-floating glass-panel">
     <a href="#" class="nav-brand">
-      <img src="assets/logo.png" alt="Happy Sushi Lampa Logo" class="nav-logo-img">
+      <img src="assets/logo.png" alt="Happy Sushi Logo" class="nav-logo-img">
       <div class="brand-text">
         <span class="brand-title">HAPPY SUSHI</span>
-        <span class="brand-subtitle">Lampa · El Mejor de la Zona</span>
       </div>
     </a>
-
     <ul class="nav-links">
       <li><a href="#hero" class="nav-link active">Inicio</a></li>
-      <li><a href="#promos" class="nav-link">Promociones</a></li>
-      <li><a href="#menu" class="nav-link">Menú Completo</a></li>
-      <li><a href="#builder" class="nav-link">Arma tu Roll</a></li>
+      <li><a href="#menu" class="nav-link">Menú</a></li>
       <li><a href="#zonas" class="nav-link">Despacho</a></li>
-      <li><a href="#opiniones" class="nav-link">Opiniones (5.0<span data-picto="star"></span>)</a></li>
     </ul>
-
-    <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <div class="nav-actions">
-      <a href="https://wa.me/56971223025" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 12px;">
-        <span data-picto="phone"></span> +569 7122 3025
-      </a>
-      <button class="cart-btn" id="open-cart-btn" aria-label="Abrir Carrito">
-        <span><span data-picto="cart"></span> Pedido</span>
-        <span class="cart-badge" id="cart-count">0</span>
+      <button class="cart-btn glass-btn" id="open-cart-btn" aria-label="Abrir Carrito">
+        <span data-picto="cart"></span> <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div id="live-status-container"></div>
-        <div class="hero-tag">🍣 Diseño Minimalista</div>
+  <main class="bento-container">
+    <!-- Bento Hero Section -->
+    <section class="bento-grid" id="hero">
+      
+      <!-- Box 1: Main Title -->
+      <div class="bento-box bento-large glass-panel bento-hero-text">
+        <div id="live-status-container" style="margin-bottom: 20px;"></div>
+        <div class="hero-tag">🍣 Bento Box UI</div>
         <h1 class="hero-title">
           HAPPY SUSHI 
-          <span>LAMPA</span>
+          <span class="gradient-text">LAMPA</span>
         </h1>
         <p class="hero-desc">
           Disfruta del auténtico sabor que conquista Lampa. Rolls artesanales, promos gigantes y sushiburgers.
         </p>
-        
         <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary"><span data-picto="takeout"></span> Ver Promos & Pedir</a>
-          <button class="btn btn-gold" id="open-builder-hero-btn"><span data-picto="tools"></span> Arma tu Roll / Burger</button>
+          <a href="#menu" class="btn btn-primary glass-btn-primary">Ver Menú</a>
+          <button class="btn btn-gold glass-btn-secondary" id="open-builder-hero-btn">Arma tu Roll</button>
         </div>
-
       </div>
 
-      <div class="hero-visual">
-        <div class="floating-badge badge-1">
+      <!-- Box 2: Visual -->
+      <div class="bento-box bento-tall glass-panel bento-hero-visual">
+        <img src="assets/hero.jpg" alt="Sushi Gourmet" class="bento-img">
+        <div class="floating-badge badge-1 glass-panel">
           <span class="badge-icon"><span data-picto="star"></span></span>
           <div class="badge-text">
             <h4>Promo 50 Pzs</h4>
-            <p>¡Best Seller $18.500!</p>
+            <p>Best Seller</p>
           </div>
         </div>
-        
-        <div class="hero-img-container">
-          <img src="assets/hero.jpg" alt="Plato Gourmet de Happy Sushi Lampa" class="hero-img">
-        </div>
+      </div>
+
+      <!-- Box 3: Info Mini -->
+      <div class="bento-box bento-small glass-panel flex-center">
+        <h3 class="bento-stat">5.0 ⭐</h3>
+        <p class="bento-label">Google Maps</p>
+      </div>
+
+      <!-- Box 4: Info Mini -->
+      <div class="bento-box bento-small glass-panel flex-center">
+        <h3 class="bento-stat">+10k</h3>
+        <p class="bento-label">Pedidos Felices</p>
       </div>
     </section>
 
