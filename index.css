@@ -1,37 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #08090b;
-  --bg-secondary: #121418;
-  --bg-tertiary: #1b1e24;
-  --bg-glass: rgba(18, 20, 24, 0.85);
-  --bg-glass-card: rgba(27, 30, 36, 0.6);
+  /* Boutique Brand Colors */
+  --bg-primary: #0a0b10;
+  --bg-secondary: #13141a;
+  --bg-tertiary: #1b1d24;
+  --bg-glass: rgba(10, 11, 16, 0.75);
+  --bg-glass-card: rgba(19, 20, 26, 0.5);
   
-  --brand-red: #E50914;
-  --brand-red-glow: #ff1e27;
-  --brand-red-dark: #99050c;
-  --accent-gold: #ffb703;
-  --accent-green: #2ecc71;
+  --brand-red: #e63946;
+  --brand-red-glow: #ff4d5a;
+  --brand-red-dark: #b81c27;
+  --accent-gold: #e9c46a;
+  --accent-green: #a8c256;
   
-  --text-main: #ffffff;
-  --text-muted: #a0a6b2;
-  --text-dim: #646b77;
+  --text-main: #f1f2f6;
+  --text-muted: #8e95a5;
+  --text-dim: #5c6270;
   
-  --border-light: rgba(255, 255, 255, 0.08);
-  --border-red: rgba(229, 9, 20, 0.4);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-red: rgba(230, 57, 70, 0.3);
   
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.7);
-  --shadow-glow: 0 0 20px rgba(229, 9, 20, 0.35);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(230, 57, 70, 0.25);
   
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
   
-  --font-heading: 'Bebas Neue', sans-serif;
-  --font-main: 'Montserrat', sans-serif;
-  --font-accent: 'Outfit', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-main: 'Manrope', sans-serif;
+  --font-accent: 'Space Grotesk', sans-serif;
 }
 
 * {
@@ -47,11 +48,13 @@ html {
 
 body {
   background-color: var(--bg-primary);
+  /* Rich dark depth instead of flat black */
+  background-image: radial-gradient(circle at 15% 0%, #1a1721 0%, var(--bg-primary) 60%);
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
-
 }
 
 /* Custom Scrollbar */
@@ -209,16 +212,15 @@ h1, h2, h3, h4, .font-heading {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px;
-  font-family: var(--font-main);
-  font-weight: 700;
-  font-size: 14px;
+  padding: 14px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
   border-radius: var(--radius-full);
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   letter-spacing: 0.5px;
 }
 
@@ -413,27 +415,36 @@ h1, h2, h3, h4, .font-heading {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Pull it slightly to overlap with the text column for depth */
+  margin-left: -5%;
 }
 
 .hero-img-container {
   position: relative;
   width: 100%;
   max-width: 580px;
-  border-radius: var(--radius-lg);
+  /* Boutique asymmetric radius */
+  border-radius: 20px 120px 20px 120px;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-light);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(230, 57, 70, 0.15);
+  border: none;
+  transform: rotate(2deg);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .hero-img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.7s ease;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-img-container:hover {
+  transform: rotate(0deg) translateY(-10px);
 }
 
 .hero-img-container:hover .hero-img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .floating-badge {
@@ -596,35 +607,38 @@ h1, h2, h3, h4, .font-heading {
 
 .menu-card {
   background: var(--bg-glass-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  border: none;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  /* Tilt effect will be handled in JS, but we set perspective here if needed, though we apply it on transform */
+  transform-style: preserve-3d;
 }
 
 .menu-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--brand-red-glow);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(230, 57, 70, 0.15);
 }
 
 .card-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 0;
+  left: 0;
   background: var(--brand-red);
   color: white;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 11px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  /* Asymmetric border radius for identity */
+  border-radius: 0 0 16px 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   z-index: 2;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
 }
 
 .card-badge.best { background: var(--accent-gold); color: #000; }
