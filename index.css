@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Minimalist Neumorphism Base Colors */
-  --bg-primary: #f0f3f6;
-  --bg-secondary: #e6e9ed;
-  --bg-tertiary: #dce0e5;
-  --bg-glass: rgba(240, 243, 246, 0.85);
-  --bg-glass-card: rgba(240, 243, 246, 0.9);
+  /* Minimalist Dark Neumorphism Base Colors */
+  --bg-primary: #22242b;
+  --bg-secondary: #272a32;
+  --bg-tertiary: #2a2d36;
+  --bg-glass: rgba(34, 36, 43, 0.85);
+  --bg-glass-card: rgba(34, 36, 43, 0.9);
   
   --brand-red: #ff6b6b;
   --brand-red-glow: #ff8787;
@@ -14,22 +14,22 @@
   --accent-gold: #fcc419;
   --accent-green: #51cf66;
   
-  --text-main: #4a4a52;
+  --text-main: #e9e9e9;
   --text-muted: #8a8a93;
-  --text-dim: #adb5bd;
+  --text-dim: #6b6e76;
   
-  /* Neumorphic Shadows for #f0f3f6 */
-  --neu-light: #ffffff;
-  --neu-dark: #d9dce0;
+  /* Neumorphic Shadows for Dark Theme */
+  --neu-light: #2c2f38;
+  --neu-dark: #18191e;
   
   /* Extremely soft, large shadows for minimalist look */
   --shadow-sm: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
   --shadow-lg: 14px 14px 28px var(--neu-dark), -14px -14px 28px var(--neu-light);
   --shadow-inset: inset 6px 6px 12px var(--neu-dark), inset -6px -6px 12px var(--neu-light);
   --shadow-inset-sm: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
-  --shadow-glow: 0 0 20px rgba(255, 107, 107, 0.3);
+  --shadow-glow: 0 0 20px rgba(255, 107, 107, 0.2);
   
-  --border-light: rgba(255, 255, 255, 0.6);
+  --border-light: rgba(255, 255, 255, 0.05);
   --border-red: rgba(255, 107, 107, 0.3);
   
   --radius-sm: 16px;
