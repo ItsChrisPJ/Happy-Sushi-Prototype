@@ -488,7 +488,7 @@ function renderMenu() {
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
         <div style="font-size: 48px; margin-bottom: 16px;"><span data-picto="search"></span><span data-picto="chopsticks"></span></div>
-        <h3 class="font-heading" style="font-size: 24px; color: white;">No encontramos rollos o promos con esa búsqueda</h3>
+        <h3 class="font-heading" style="font-size: 24px; color: var(--text-main);">No encontramos rollos o promos con esa búsqueda</h3>
         <p>Intenta buscar por "pollo", "camarón", "queso crema", "frito" o selecciona otra categoría.</p>
       </div>
     `;
@@ -512,8 +512,8 @@ function renderMenu() {
         <p class="card-desc">${item.desc}</p>
         <div class="card-footer">
           <span class="card-price">${formattedPrice}</span>
-          <button class="btn-add" data-id="${item.id}">
-            <span data-picto="plus"></span> <span>Agregar</span>
+          <button class="btn-add" data-id="${item.id}" aria-label="Agregar al carrito">
+            <span data-picto="plus"></span>
           </button>
         </div>
       </div>
