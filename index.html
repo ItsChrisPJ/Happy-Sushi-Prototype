@@ -6,6 +6,9 @@
   <title>HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos</title>
   <meta name="description" content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local.">
   <link rel="stylesheet" href="index.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
 
@@ -311,47 +314,51 @@
             <p style="font-size: 13px;">¡Quítate el bajón agregando unas promos o sushiburgers!</p>
           </div>
         </div>
+
+        <!-- Order Form Fields (moved from footer to enable scrolling) -->
+        <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+          <div class="form-group">
+            <label class="form-label" for="delivery-zone"><span data-picto="location"></span> Zona de Reparto en Lampa:</label>
+            <select id="delivery-zone" class="form-select">
+              <option value="1500" data-name="Despacho en Lampa" data-minfree="20000">Despacho en Lampa ($1.500 | Gratis > $20.000)</option>
+              <option value="0" data-name="Retiro en Local">Retiro en Local - Arturo Prat 1377 ($0)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="payment-method"><span data-picto="card"></span> Medio de Pago:</label>
+            <select id="payment-method" class="form-select">
+              <option value="Transferencia Bancaria">Transferencia Bancaria (Ver datos)</option>
+              <option value="Débito / Crédito">Débito / Crédito (Redcompra al recibir)</option>
+              <option value="Efectivo al Recibir">Efectivo al Recibir</option>
+              <option value="JUNAEB / PLUXEE">JUNAEB / PLUXEE (Válido DESDE las 17:00 hrs)</option>
+            </select>
+          </div>
+
+          <div id="transfer-info-box" class="transfer-box" style="display: block;">
+            <div class="transfer-title"><span data-picto="bank"></span> Datos para Transferir:</div>
+            <p class="transfer-detail"><strong>Banco:</strong> Banco Estado (Cuenta RUT)</p>
+            <p class="transfer-detail"><strong>RUT:</strong> 76.543.210-K</p>
+            <p class="transfer-detail"><strong>Nombre:</strong> Happy Sushi Lampa SPA</p>
+            <p class="transfer-detail"><strong>Tipo:</strong> Cuenta Vista / RUT</p>
+            <p class="transfer-detail"><strong>Correo:</strong> pagos@happysushilampa.cl</p>
+            <p class="transfer-note"><span data-picto="info"></span> Recuerda enviar tu comprobante en la conversación de WhatsApp al confirmar el pedido.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customer-name"><span data-picto="info"></span> A nombre de (Quién pide / retira):</label>
+            <input type="text" id="customer-name" class="form-input" placeholder="Ej: Juan Pérez" autocomplete="off">
+          </div>
+
+          <div class="form-group" id="address-group">
+            <label class="form-label" id="address-label" for="customer-address"><span data-picto="house"></span> Dirección exacta y notas:</label>
+            <input type="text" id="customer-address" class="form-input" placeholder="Ej: Calle Principal 123, Casa 4..." autocomplete="off">
+          </div>
+        </div>
       </div>
 
       <div class="cart-footer">
-        <div class="form-group">
-          <label class="form-label" for="delivery-zone"><span data-picto="location"></span> Zona de Reparto en Lampa:</label>
-          <select id="delivery-zone" class="form-select">
-            <option value="1500" data-name="Despacho en Lampa" data-minfree="20000">Despacho en Lampa ($1.500 | Gratis > $20.000)</option>
-            <option value="0" data-name="Retiro en Local">Retiro en Local - Arturo Prat 1377 ($0)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="payment-method"><span data-picto="card"></span> Medio de Pago:</label>
-          <select id="payment-method" class="form-select">
-            <option value="Transferencia Bancaria">Transferencia Bancaria (Ver datos)</option>
-            <option value="Débito / Crédito">Débito / Crédito (Redcompra al recibir)</option>
-            <option value="Efectivo al Recibir">Efectivo al Recibir</option>
-            <option value="JUNAEB / PLUXEE">JUNAEB / PLUXEE (Válido DESDE las 17:00 hrs)</option>
-          </select>
-        </div>
-
-        <div id="transfer-info-box" class="transfer-box" style="display: block;">
-          <div class="transfer-title"><span data-picto="bank"></span> Datos para Transferir:</div>
-          <p class="transfer-detail"><strong>Banco:</strong> Banco Estado (Cuenta RUT)</p>
-          <p class="transfer-detail"><strong>RUT:</strong> 76.543.210-K</p>
-          <p class="transfer-detail"><strong>Nombre:</strong> Happy Sushi Lampa SPA</p>
-          <p class="transfer-detail"><strong>Tipo:</strong> Cuenta Vista / RUT</p>
-          <p class="transfer-detail"><strong>Correo:</strong> pagos@happysushilampa.cl</p>
-          <p class="transfer-note"><span data-picto="info"></span> Recuerda enviar tu comprobante en la conversación de WhatsApp al confirmar el pedido.</p>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="customer-name"><span data-picto="info"></span> A nombre de (Quién pide / retira):</label>
-          <input type="text" id="customer-name" class="form-input" placeholder="Ej: Juan Pérez" autocomplete="off">
-        </div>
-
-        <div class="form-group" id="address-group">
-          <label class="form-label" id="address-label" for="customer-address"><span data-picto="house"></span> Dirección exacta y notas:</label>
-          <input type="text" id="customer-address" class="form-input" placeholder="Ej: Calle Principal 123, Casa 4..." autocomplete="off">
-        </div>
-
+        <!-- Form fields moved to cart-body -->
         <div class="price-summary">
           <div class="summary-row">
             <span>Subtotal Productos:</span>
