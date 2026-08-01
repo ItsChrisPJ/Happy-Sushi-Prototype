@@ -8,10 +8,9 @@
   --glass-border-light: rgba(255, 255, 255, 0.15);
   --glass-highlight: rgba(255, 255, 255, 0.03);
   
-  --brand-red: #ff5757;
-  --brand-red-glow: rgba(255, 87, 87, 0.6);
-  --brand-aurora-1: #ff3b3b;
-  --brand-aurora-2: #8a2be2;
+  --brand-red: #ff3333;
+  --brand-red-solid: #e60000;
+  --brand-red-glow: transparent; /* Disabled per user request */
   --brand-aurora-3: #1c52b3;
   --accent-gold: #fcc419;
   
@@ -20,8 +19,8 @@
   --text-dim: rgba(255, 255, 255, 0.4);
   
   /* Glass Shadows */
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --shadow-glow: 0 0 20px var(--brand-red-glow);
+  --shadow-glass: 0 4px 30px rgba(0, 0, 0, 0.5);
+  --shadow-glow: none; /* Disabled */
   
   --radius-sm: 16px;
   --radius-md: 24px;
@@ -195,7 +194,7 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--brand-red-glow);
+  color: var(--brand-red);
 }
 
 .nav-link::after {
@@ -205,7 +204,7 @@ h1, h2, h3, h4, .font-heading {
   left: 0;
   width: 0%;
   height: 2px;
-  background: var(--brand-red-glow);
+  background: var(--brand-red);
   transition: width 0.3s ease;
 }
 
@@ -240,13 +239,14 @@ h1, h2, h3, h4, .font-heading {
 .glass-btn-primary {
   background: var(--brand-red);
   color: white;
-  border-color: var(--brand-red-glow);
-  box-shadow: 0 4px 15px var(--brand-red-glow);
+  border-color: var(--brand-red-solid);
+  box-shadow: none;
 }
 
 .glass-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--brand-red-glow);
+  background: var(--brand-red-solid);
+  box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
 }
 
 .glass-btn-secondary {
@@ -384,9 +384,8 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ff5757, #8a2be2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-main); /* solid white */
+  font-weight: 800;
   display: block;
 }
 
@@ -1238,13 +1237,14 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .option-btn:hover {
-  border-color: var(--brand-red-glow);
+  border-color: var(--brand-red);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .option-btn.selected {
-  background: var(--brand-red);
-  border-color: var(--brand-red-glow);
-  box-shadow: var(--shadow-glow);
+  border-color: var(--brand-red);
+  background: rgba(255, 51, 51, 0.1);
+  box-shadow: none;
 }
 
 .option-price {
