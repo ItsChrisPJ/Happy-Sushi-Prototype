@@ -377,109 +377,118 @@
   <!-- Modal Wizard "Crea Tu Roll / Sushiburger" -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="font-heading"><span data-picto="tools"></span> CREA TU <span class="text-gold">ANTOJO IDEAL</span></h3>
-        <button class="btn-close" id="close-modal-btn" aria-label="Cerrar Modal">&times;</button>
+      <div class="modal-header" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+          <h3 class="font-heading" id="wizard-main-title"><span data-picto="tools"></span> CREA TU <span class="text-gold">ANTOJO IDEAL</span></h3>
+          <button class="btn-close" id="close-modal-btn" aria-label="Cerrar Modal">&times;</button>
+        </div>
+        <div class="wizard-progress-bar">
+          <div class="wizard-progress-fill" id="wizard-progress-fill" style="width: 20%;"></div>
+        </div>
       </div>
 
       <div class="modal-body">
-        <div class="wizard-step">
+        <div class="wizard-step active-step" data-step="1">
           <div class="wizard-title">
             <span>PASO 1: ELIGE QUÉ QUEREMOS ARMAR</span>
             <span>Selección base</span>
           </div>
           <div class="options-grid" id="builder-type-grid">
             <button class="option-btn selected" data-type="roll" data-price="4500" data-name="Roll Ideal (8 Pzs)">
-              Roll Ideal
+              🍣 Roll Ideal
               <span class="option-price">$4.500</span>
             </button>
             <button class="option-btn" data-type="sushiburger" data-price="8000" data-name="Sushiburger a tu Gusto">
-              Sushiburger
+              🍔 Sushiburger
               <span class="option-price">$8.000</span>
             </button>
             <button class="option-btn" data-type="gohan" data-price="6500" data-name="Gohan a tu Gusto">
-              Gohan Bowl
+              🥗 Gohan Bowl
               <span class="option-price">$6.500</span>
             </button>
             <button class="option-btn" data-type="handroll" data-price="3500" data-name="Handroll a tu Gusto">
-              Handroll (1x)
+              🌯 Handroll (1x)
               <span class="option-price">$3.500</span>
             </button>
           </div>
         </div>
 
-        <div class="wizard-step" id="step-envoltura">
+        <div class="wizard-step" id="step-envoltura" data-step="2">
           <div class="wizard-title">
             <span>PASO 2: ELIGE ENVOLTURA / BASE</span>
             <span>1 opción</span>
           </div>
           <div class="options-grid" id="builder-wrap-grid">
-            <button class="option-btn selected" data-wrap="Panko Frito Crujiente">Panko Frito</button>
-            <button class="option-btn" data-wrap="Palta Fresca">Env. Palta</button>
-            <button class="option-btn" data-wrap="Queso Crema">Env. Queso</button>
-            <button class="option-btn" data-wrap="Sésamo Tostado">Env. Sésamo</button>
-            <button class="option-btn" data-wrap="Alga Nori">Env. Nori</button>
-            <button class="option-btn" data-wrap="Salmón Premium (+1000)" data-extra="1000">Env. Salmón (+$1.000)</button>
+            <button class="option-btn selected" data-wrap="Panko Frito Crujiente">🔥 Panko Frito</button>
+            <button class="option-btn" data-wrap="Palta Fresca">🥑 Env. Palta</button>
+            <button class="option-btn" data-wrap="Queso Crema">🧀 Env. Queso</button>
+            <button class="option-btn" data-wrap="Sésamo Tostado">🌰 Env. Sésamo</button>
+            <button class="option-btn" data-wrap="Alga Nori">🌿 Env. Nori</button>
+            <button class="option-btn" data-wrap="Salmón Premium (+1000)" data-extra="1000">🐟 Env. Salmón (+$1.000)</button>
           </div>
         </div>
 
-        <div class="wizard-step">
+        <div class="wizard-step" data-step="3">
           <div class="wizard-title">
             <span>PASO 3: ELIGE PROTEÍNA PRINCIPAL</span>
             <span>1 opción (*Salmón +$1.000)</span>
           </div>
           <div class="options-grid" id="builder-protein-grid">
-            <button class="option-btn selected" data-protein="Pollo Teriyaki">Pollo Teriyaki</button>
-            <button class="option-btn" data-protein="Pollo">Pollo</button>
-            <button class="option-btn" data-protein="Pollo Apanado">Pollo Apanado</button>
-            <button class="option-btn" data-protein="Camarón">Camarón</button>
-            <button class="option-btn" data-protein="Camarón Apanado">Camarón Apanado</button>
-            <button class="option-btn" data-protein="Churrasco">Churrasco</button>
-            <button class="option-btn" data-protein="Kanikama">Kanikama</button>
-            <button class="option-btn" data-protein="Kanikama Apanado">Kanikama Apanado</button>
-            <button class="option-btn" data-protein="Salmón Fresco (+1000)" data-extra="1000">Salmón (+$1.000)</button>
+            <button class="option-btn selected" data-protein="Pollo Teriyaki">🍗 Pollo Teriyaki</button>
+            <button class="option-btn" data-protein="Pollo">🍗 Pollo</button>
+            <button class="option-btn" data-protein="Pollo Apanado">🍗 Pollo Apanado</button>
+            <button class="option-btn" data-protein="Camarón">🦐 Camarón</button>
+            <button class="option-btn" data-protein="Camarón Apanado">🦐 Camarón Apanado</button>
+            <button class="option-btn" data-protein="Churrasco">🥩 Churrasco</button>
+            <button class="option-btn" data-protein="Kanikama">🦀 Kanikama</button>
+            <button class="option-btn" data-protein="Kanikama Apanado">🦀 Kanikama Apanado</button>
+            <button class="option-btn" data-protein="Salmón Fresco (+1000)" data-extra="1000">🐟 Salmón (+$1.000)</button>
           </div>
         </div>
 
-        <div class="wizard-step">
+        <div class="wizard-step" data-step="4">
           <div class="wizard-title">
             <span>PASO 4: ELIGE AGREGADOS (2 A 4 SEGÚN PRODUCTO)</span>
             <span>Queso crema, palta, cebollín...</span>
           </div>
           <div class="options-grid" id="builder-extras-grid">
-            <button class="option-btn selected" data-extra-item="Queso Crema">Queso Crema</button>
-            <button class="option-btn selected" data-extra-item="Palta">Palta</button>
-            <button class="option-btn" data-extra-item="Cebollín">Cebollín</button>
-            <button class="option-btn" data-extra-item="Ciboulette">Ciboulette</button>
-            <button class="option-btn" data-extra-item="Champiñón">Champiñón</button>
-            <button class="option-btn" data-extra-item="Pimentón">Pimentón</button>
-            <button class="option-btn" data-extra-item="Palmito">Palmito</button>
-            <button class="option-btn" data-extra-item="Aceituna">Aceituna</button>
+            <button class="option-btn selected" data-extra-item="Queso Crema">🧀 Queso Crema</button>
+            <button class="option-btn selected" data-extra-item="Palta">🥑 Palta</button>
+            <button class="option-btn" data-extra-item="Cebollín">🧅 Cebollín</button>
+            <button class="option-btn" data-extra-item="Ciboulette">🌿 Ciboulette</button>
+            <button class="option-btn" data-extra-item="Champiñón">🍄 Champiñón</button>
+            <button class="option-btn" data-extra-item="Pimentón">🫑 Pimentón</button>
+            <button class="option-btn" data-extra-item="Palmito">🌴 Palmito</button>
+            <button class="option-btn" data-extra-item="Aceituna">🫒 Aceituna</button>
           </div>
         </div>
 
-        <div class="wizard-step">
+        <div class="wizard-step" data-step="5">
           <div class="wizard-title">
             <span>PASO 5: SALSA & ADEREZOS</span>
             <span>¡Salsa verde y soya incluidas en tu pedido!</span>
           </div>
           <div class="options-grid" id="builder-sauce-grid">
-            <button class="option-btn selected" data-sauce="Salsa Acevichada Casera">Salsa Acevichada</button>
-            <button class="option-btn" data-sauce="Salsa Teriyaki / Unagi">Teriyaki Dulce</button>
-            <button class="option-btn" data-sauce="Spicy Mayo Suave">Spicy Mayo</button>
-            <button class="option-btn" data-sauce="Salsa Soya Sésamo">Soya Tradicional</button>
+            <button class="option-btn selected" data-sauce="Salsa Acevichada Casera">🍋 Salsa Acevichada</button>
+            <button class="option-btn" data-sauce="Salsa Teriyaki / Unagi">🍯 Teriyaki Dulce</button>
+            <button class="option-btn" data-sauce="Spicy Mayo Suave">🌶️ Spicy Mayo</button>
+            <button class="option-btn" data-sauce="Salsa Soya Sésamo">🥢 Soya Tradicional</button>
           </div>
         </div>
       </div>
 
-      <div class="modal-footer">
-        <div>
-          <span style="font-size: 12px; color: var(--text-muted); display: block; text-transform: uppercase;">Precio Calculado:</span>
+      <div class="modal-footer wizard-footer">
+        <div class="wizard-price-container">
+          <span class="wizard-price-label">Subtotal:</span>
           <span class="modal-price-calc" id="modal-total-price">$4.500</span>
         </div>
-        <button class="btn btn-primary" id="btn-add-custom-roll" style="padding: 14px 28px; font-size: 15px;">
-          <span data-picto="plus"></span> AGREGAR A MI PEDIDO
-        </button>
+        <div class="wizard-nav-buttons">
+          <button class="btn btn-outline" id="btn-wizard-prev" style="display: none; padding: 12px 20px;">Atrás</button>
+          <button class="btn btn-primary" id="btn-wizard-next" style="padding: 12px 24px;">Siguiente ➔</button>
+          <button class="btn btn-primary" id="btn-add-custom-roll" style="display: none; padding: 12px 24px;">
+            <span data-picto="plus"></span> AGREGAR
+          </button>
+        </div>
       </div>
     </div>
   </div>

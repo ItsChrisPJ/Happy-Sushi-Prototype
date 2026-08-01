@@ -737,6 +737,57 @@ function setupBuilderListeners() {
   const btnAddCustom = document.getElementById('btn-add-custom-roll');
   const stepEnvoltura = document.getElementById('step-envoltura');
 
+  // Wizard Navigation State
+  let currentStep = 1;
+  const maxSteps = 5;
+  const wizardSteps = document.querySelectorAll('.wizard-step');
+  const btnPrev = document.getElementById('btn-wizard-prev');
+  const btnNext = document.getElementById('btn-wizard-next');
+  const progressFill = document.getElementById('wizard-progress-fill');
+
+  function updateWizardUI() {
+    wizardSteps.forEach(step => {
+      if (parseInt(step.getAttribute('data-step')) === currentStep) {
+        step.classList.add('active-step');
+      } else {
+        step.classList.remove('active-step');
+      }
+    });
+
+    progressFill.style.width = `${(currentStep / maxSteps) * 100}%`;
+
+    btnPrev.style.display = currentStep > 1 ? 'block' : 'none';
+    
+    if (currentStep === maxSteps) {
+      btnNext.style.display = 'none';
+      btnAddCustom.style.display = 'flex';
+    } else {
+      btnNext.style.display = 'block';
+      btnAddCustom.style.display = 'none';
+    }
+  }
+
+  btnNext.addEventListener('click', () => {
+    if (currentStep === 1 && builderState.type !== 'roll') {
+      currentStep += 2; // Skip step 2 (envoltura) if not a roll
+    } else {
+      currentStep++;
+    }
+    if (currentStep > maxSteps) currentStep = maxSteps;
+    updateWizardUI();
+  });
+
+  btnPrev.addEventListener('click', () => {
+    if (currentStep === 3 && builderState.type !== 'roll') {
+      currentStep -= 2; // Jump back to step 1
+    } else {
+      currentStep--;
+    }
+    if (currentStep < 1) currentStep = 1;
+    updateWizardUI();
+  });
+
+
   // 1. Cambiar Tipo de Producto (Roll, Sushiburger, Gohan, Handroll)
   typeGrid.querySelectorAll('.option-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -747,11 +798,8 @@ function setupBuilderListeners() {
       builderState.typeName = btn.getAttribute('data-name');
       builderState.basePrice = parseInt(btn.getAttribute('data-price'), 10);
 
-      // Si es Sushiburger, Gohan o Handroll, el paso de envoltura se oculta o se adapta
-      if (builderState.type === 'roll') {
-        stepEnvoltura.style.display = 'block';
-      } else {
-        stepEnvoltura.style.display = 'none';
+      // We handle step skipping in the "Next" button logic now, but we still ensure data is consistent
+      if (builderState.type !== 'roll') {
         builderState.wrap = builderState.typeName;
       }
 
@@ -820,9 +868,17 @@ function setupBuilderListeners() {
     addToCart({ price: calculateBuilderPrice() }, titleFormatted);
     showToast('¡Tu pedido personalizado fue creado y agregado!');
     
-    // Cerrar modal
+    // Cerrar modal y reiniciar
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = 'auto';
+    currentStep = 1;
+    updateWizardUI();
+  });
+
+  // Reset modal state when closed from X button
+  document.getElementById('close-modal-btn').addEventListener('click', () => {
+    currentStep = 1;
+    updateWizardUI();
   });
 }
 
