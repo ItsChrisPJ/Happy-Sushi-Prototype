@@ -66,45 +66,7 @@ body {
 }
 
 .aurora-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.5;
-  animation: aurora-float 20s infinite ease-in-out alternate;
-}
-
-.aurora-1 {
-  width: 40vw;
-  height: 40vw;
-  background: var(--brand-aurora-1);
-  top: -10%;
-  left: -10%;
-  animation-delay: 0s;
-}
-
-.aurora-2 {
-  width: 35vw;
-  height: 35vw;
-  background: var(--brand-aurora-2);
-  bottom: 20%;
-  right: -5%;
-  animation-delay: -5s;
-}
-
-.aurora-3 {
-  width: 30vw;
-  height: 30vw;
-  background: var(--brand-aurora-3);
-  top: 40%;
-  left: 30%;
-  animation-delay: -10s;
-}
-
-@keyframes aurora-float {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(10vw, -10vh) scale(1.1); }
-  66% { transform: translate(-5vw, 15vh) scale(0.9); }
-  100% { transform: translate(-15vw, 5vh) scale(1.2); }
+  display: none; /* User requested no gradients */
 }
 
 /* Glass Panel Utility */
@@ -1051,25 +1013,33 @@ h1, h2, h3, h4, .font-heading {
 
 .form-select, .form-input {
   width: 100%;
-  background: var(--bg-primary);
-  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   color: var(--text-main);
   font-family: var(--font-main);
   font-size: 14px;
-  box-shadow: var(--shadow-inset);
   transition: all 0.2s ease;
 }
 
 .form-select:focus, .form-input:focus {
   outline: none;
-  box-shadow: var(--shadow-inset-sm);
+  border-color: var(--brand-red-glow);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix option text color for select drop down */
+.form-select option {
+  background: #1a1a1a;
+  color: #fff;
 }
 
 .transfer-box {
-  background: var(--bg-primary);
-  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-left: 4px solid var(--accent-gold);
   border-radius: var(--radius-sm);
   padding: 14px 16px;
@@ -1077,7 +1047,6 @@ h1, h2, h3, h4, .font-heading {
   margin-bottom: 16px;
   font-size: 13px;
   color: var(--text-main);
-  box-shadow: var(--shadow-inset);
 }
 
 .transfer-title {
