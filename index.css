@@ -102,7 +102,7 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .text-gold { color: var(--accent-gold); }
-.text-red { color: var(--brand-red-glow); }
+.text-red { color: var(--brand-red-solid); }
 .text-green { color: var(--accent-green); }
 
 /* Floating Glass Navbar */
