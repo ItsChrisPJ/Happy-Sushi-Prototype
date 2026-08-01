@@ -1388,28 +1388,37 @@ h1, h2, h3, h4, .font-heading {
     display: none;
   }
 
-  .hero {
+  .bento-container {
+    margin-top: 100px;
+    padding: 0 16px;
+  }
+
+  .bento-grid {
     grid-template-columns: 1fr;
-    text-align: center;
-    padding-top: 20px;
-    min-height: auto;
+    grid-auto-rows: auto;
   }
 
-  .hero-desc {
-    margin: 0 auto 32px;
+  .bento-large, .bento-tall, .bento-small {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
   }
 
-  .hero-actions, .hero-stats {
-    justify-content: center;
+  .hero-title {
+    font-size: clamp(32px, 8vw, 48px);
   }
 
-  .hero-stats {
-    flex-wrap: wrap;
-    gap: 20px;
+  .bento-hero-visual {
+    height: 300px; /* Provide fixed height for image on mobile */
   }
 
-  .badge-1 { left: 0; }
-  .badge-2 { right: 0; }
+  .floating-badge {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: -30px;
+    margin-left: 20px;
+    width: fit-content;
+  }
 
   .coverage-grid {
     grid-template-columns: 1fr;
