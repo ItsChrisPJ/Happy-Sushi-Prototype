@@ -1394,13 +1394,15 @@ h1, h2, h3, h4, .font-heading {
   }
 
   .bento-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px;
   }
 
   .bento-large, .bento-tall, .bento-small {
-    grid-column: span 1 !important;
-    grid-row: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   .hero-title {
