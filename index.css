@@ -1811,3 +1811,20 @@ h1, h2, h3, h4, .font-heading {
   animation: fadeUpIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   opacity: 0;
 }
+
+/* Easter Egg: Falling Sushi */
+.falling-sushi {
+  position: fixed;
+  top: -100px;
+  font-size: 40px;
+  z-index: 9999;
+  user-select: none;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}

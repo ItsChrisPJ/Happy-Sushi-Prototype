@@ -976,3 +976,35 @@ function updateLiveStoreStatus() {
     console.error("Error calculando hora chilena:", err);
   }
 }
+
+// Easter Egg Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const eggBtn = document.getElementById('easter-egg-btn');
+  if (eggBtn) {
+    eggBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const emojis = ['🍣', '🍱', '🥢', '🍙', '🍤'];
+      const numSushi = 30; // Rain amount
+
+      for (let i = 0; i < numSushi; i++) {
+        setTimeout(() => {
+          const sushi = document.createElement('div');
+          sushi.className = 'falling-sushi';
+          sushi.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+          
+          // Randomize position and duration
+          sushi.style.left = Math.random() * 100 + 'vw';
+          sushi.style.animationDuration = Math.random() * 2 + 2 + 's'; // 2 to 4 seconds
+          
+          document.body.appendChild(sushi);
+          
+          // Cleanup
+          setTimeout(() => {
+            sushi.remove();
+          }, 4500);
+        }, i * 150); // Stagger drop
+      }
+    });
+  }
+});
