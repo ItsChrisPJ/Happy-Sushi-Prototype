@@ -270,7 +270,7 @@ h1, h2, h3, h4, .font-heading {
 .glass-btn-secondary {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  color: white;
+  color: var(--text-main);
 }
 
 .glass-btn-secondary:hover {
@@ -282,7 +282,7 @@ h1, h2, h3, h4, .font-heading {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  color: white;
+  color: var(--text-main);
 }
 
 .glass-btn:hover {
@@ -1049,8 +1049,8 @@ h1, h2, h3, h4, .font-heading {
 
 /* Fix option text color for select drop down */
 .form-select option {
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--bg-pure);
+  color: var(--text-main);
 }
 
 .transfer-box {
