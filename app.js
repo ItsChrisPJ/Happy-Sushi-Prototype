@@ -1,303 +1,50 @@
 // Base de datos oficial de la carta HAPPY SUSHI LAMPA
 const MENU_ITEMS = [
-  // === PROMOCIONES (Foto 3: Carta de Promociones) ===
-  {
-    id: 'promo-20',
-    title: '20 Piezas',
-    price: 7500,
-    category: 'promos',
-    desc: 'Env. Queso: pollo, palta, ciboulette. | Frito: camarón, queso, cebollín.',
-    badge: 'Popular',
-    badgeType: 'hot',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-vegana',
-    title: 'Promoción Vegana',
-    price: 11000,
-    category: 'promos',
-    desc: 'Env. Sésamo: pimentón, palta, cebollín. | Env. Palta: champiñón, aceituna, ciboulette. | Env. Nori: palmito, pimentón, palta.',
-    badge: '100% Vegano',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-vegetariana',
-    title: 'Promoción Vegetariana',
-    price: 11000,
-    category: 'promos',
-    desc: 'Env. Sésamo: palta, cebollín, queso. | Frito: champiñón, aceituna, queso. | Env. Nori: palmito, queso, palta.',
-    badge: 'Veggie',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-30',
-    title: '30 Piezas',
-    price: 10900,
-    category: 'promos',
-    desc: 'Env. Queso: pollo, palta, ciboulette. | Env. Ciboulette: kanikama, pimentón, queso. | Frito: camarón, cebollín, queso.',
-    badge: '',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-40',
-    title: '40 Piezas',
-    price: 14900,
-    category: 'promos',
-    desc: 'Env. Palta: kanikama, cebollín, queso. | Env. Queso: pollo, palta, ciboulette. | Frito: camarón, palmito, queso. | Frito: churrasco, palta, queso.',
-    badge: '',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-40-fritas',
-    title: '40 Piezas 100% Fritas',
-    price: 16000,
-    category: 'promos',
-    desc: 'Frito: pollo, cebollín, queso. | Frito: pollo, palta, queso. | Frito: camarón, pimentón, queso. | Frito: churrasco, champiñón, queso.',
-    badge: '100% Fritas',
-    badgeType: 'hot',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-50',
-    title: '50 Piezas Best Seller',
-    price: 18500,
-    category: 'promos',
-    desc: 'Env. Palta: camarón, cebollín, queso. | Env. Queso: pollo, palta, ciboulette. | Frito: pollo, palta, queso. | Frito: churrasco, champiñón, queso. | Frito: camarón, ciboulette, queso.',
-    badge: 'BEST SELLER',
-    badgeType: 'best',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-70',
-    title: '70 Piezas',
-    price: 26000,
-    category: 'promos',
-    desc: 'Env. Palta: camarón, ciboulette, queso. | Env. Queso: kanikama, cebollín, palta. | Env. Ciboulette: pollo, palta, aceituna. | Frito: churrasco, champiñón, queso. | Frito: pollo, palta, queso. | Frito: pollo, pimentón, queso. | Frito: camarón, queso, cebollín.',
-    badge: '',
-    img: 'assets/promo50.jpg'
-  },
-  {
-    id: 'promo-80-torta',
-    title: '80 Piezas (Torta de Sushi)',
-    price: 35000,
-    category: 'promos',
-    desc: 'Env. Palta: kanikama, queso, cebollín. | Env. Queso: pollo, palta, ciboulette. | Env. Sésamo: kanikama, palmito, queso. | Env. Ciboulette: kanikama, pimentón, queso. | Env. Nori: camarón, palmito, queso. | Frito: churrasco, champiñón, queso. | Frito: churrasco, palta, queso. | Frito: camarón, ciboulette, queso. | Frito: camarón, cebollín, queso. | Frito: pollo, palta, queso.',
-    badge: 'Torta de Sushi',
-    badgeType: 'best',
-    img: 'assets/hero.jpg'
-  },
-  {
-    id: 'promo-100',
-    title: '100 Piezas',
-    price: 37000,
-    category: 'promos',
-    desc: 'Env. Palta: camarón, queso, cebollín. | Env. Queso: pollo, palta, ciboulette. | Env. Sésamo: pollo, aceituna, queso. | Env. Ciboulette: kanikama, palta, queso. | Env. Nori: camarón, palmito, queso. | Frito: churrasco, champiñón, queso. | Frito: churrasco, ciboulette, queso. | Frito: camarón, pimentón, queso. | Frito: camarón, cebollín, queso. | Frito: pollo, palta, queso.',
-    badge: 'Mega Promo',
-    badgeType: 'hot',
-    img: 'assets/hero.jpg'
-  },
+  // === PROMOCIONES ===
+  { id: 'promo-20', title: '20 Piezas', price: 8000, category: 'promos', desc: 'Rolls clásicos variados envueltos en sésamo, ciboulette o queso.', badge: 'Popular', badgeType: 'hot', img: 'assets/hero.jpg' },
+  { id: 'promo-20-frita', title: '20 Piezas Fritas', price: 8500, category: 'promos', desc: 'Crujientes piezas fritas en panko.', badge: '100% Fritas', img: 'assets/hero.jpg' },
+  { id: 'promo-30', title: '30 Piezas', price: 12000, category: 'promos', desc: 'Mix de piezas frías y calientes ideal para compartir.', badge: '', img: 'assets/hero.jpg' },
+  { id: 'promo-40', title: '40 Piezas', price: 16000, category: 'promos', desc: 'Surtido completo de rolls tradicionales y fritos.', badge: '', img: 'assets/hero.jpg' },
+  { id: 'promo-40-fritas', title: '40 Fritas', price: 16500, category: 'promos', desc: '40 piezas totalmente fritas y crujientes.', badge: '100% Fritas', badgeType: 'hot', img: 'assets/hero.jpg' },
+  { id: 'promo-50', title: '50 Piezas', price: 20000, category: 'promos', desc: 'La favorita para grupos. Gran variedad de sabores.', badge: 'BEST SELLER', badgeType: 'best', img: 'assets/hero.jpg' },
+  { id: 'promo-70', title: '70 Piezas', price: 28000, category: 'promos', desc: 'Para cuando hay mucha hambre y muchos amigos.', badge: '', img: 'assets/hero.jpg' },
+  { id: 'promo-70-frita', title: '70 Piezas Frita', price: 29000, category: 'promos', desc: '¡70 piezas 100% fritas en panko crujiente!', badge: 'Full Crunch', img: 'assets/hero.jpg' },
+  { id: 'promo-80-torta', title: '80 Piezas - Torta de Sushi', price: 40000, category: 'promos', desc: '¿Torta o sushi? Mejor ambos. Una espectacular torta armada con 80 deliciosas piezas.', badge: 'Torta de Sushi', badgeType: 'best', img: 'assets/torta.png' },
+  { id: 'promo-100', title: '100 Piezas', price: 40000, category: 'promos', desc: 'El mega combo definitivo para los verdaderos amantes del sushi.', badge: 'Mega Promo', badgeType: 'hot', img: 'assets/hero.jpg' },
+  { id: 'promo-veganas', title: 'Combos Veganas', price: 12000, category: 'promos', desc: 'Opción 100% vegana con ingredientes frescos y vegetales.', badge: '100% Vegano', img: 'assets/hero.jpg' },
+  { id: 'promo-vegetarianas', title: 'Combos Vegetarianas', price: 12000, category: 'promos', desc: 'Rolls vegetarianos con queso crema y vegetales seleccionados.', badge: 'Veggie', img: 'assets/hero.jpg' },
 
-  // === ENTRADAS (Fotos 1 y 2) ===
-  {
-    id: 'sushi-balls',
-    title: 'Sushi Balls (8 Unidades)',
-    price: 5000,
-    category: 'entradas',
-    desc: 'Crujientes bolitas de arroz panko rellenas. Incluye salsa verde y salsa a elección.',
-    badge: 'FAVORITO',
-    badgeType: 'best',
-    img: 'assets/appetizer.jpg'
-  },
-  {
-    id: 'arrollados-primavera',
-    title: 'Arrollados Primavera / Jamón Queso (5 Un)',
-    price: 3500,
-    category: 'entradas',
-    desc: 'Recién fritos, crujientes y calentitos. ¡Pídelos ahora!',
-    badge: 'Recién Fritos',
-    badgeType: 'hot',
-    img: 'assets/appetizer.jpg'
-  },
-  {
-    id: 'sin-arroz-20-fritas',
-    title: '20 Piezas Sin Arroz',
-    price: 12000,
-    category: 'sinarroz',
-    desc: 'Frito: pollo, queso, palta, cebollín. | Env. Queso: churrasco, palta, queso, cebollín, pimentón. Sin arroz.',
-    badge: 'Sin Arroz',
-    img: 'assets/promo50.jpg'
-  },
+  // === ENTRADAS / MÁS OPCIONES ===
+  { id: 'sushiballs', title: 'Sushi Balls (8U)', price: 5500, category: 'entradas', desc: 'Crujientes bolitas de arroz panko rellenas. Incluye salsa verde y salsa a elección.', badge: 'FAVORITO', badgeType: 'best', img: 'assets/sushi_balls.png' },
+  { id: 'arrollados', title: 'Arrollados (5U)', price: 4000, category: 'entradas', desc: 'Arrollados primavera recién fritos y calentitos.', badge: 'Recién Fritos', img: 'assets/appetizer.jpg' },
+  { id: 'camaron-apanado', title: 'Camarón Apanado (8U)', price: 5000, category: 'entradas', desc: 'Camarones envueltos en panko frito.', badge: '', img: 'assets/appetizer.jpg' },
+  { id: 'pollo-apanado', title: 'Pollo Apanado (6U)', price: 4500, category: 'entradas', desc: 'Trocitos de pollo crujientes en panko.', badge: '', img: 'assets/appetizer.jpg' },
 
-  // === CREA TU ROLL IDEAL (Foto 4 arriba) ===
-  {
-    id: 'roll-ideal',
-    title: 'Crea Tu Roll Ideal (10 Pzs)',
-    price: 4500,
-    category: 'sushiburger',
-    desc: 'Elige envoltura (palta, queso, ciboulette, sésamo, nori, frito). 1 proteína (pollo, pollo apanado, pollo teriyaki, camarón, camarón apanado, churrasco, kanikama, kanikama apanado) + 2 agregados. *Salmón +$1.000. Ingrediente extra: vegetal $500, proteína $800.',
-    badge: 'Personalizable',
-    badgeType: 'best',
-    img: 'assets/hero.jpg'
-  },
+  // === SUSHIBURGERS & HANDROLLS ===
+  { id: 'arma-tu-roll', title: 'Arma Tú Roll', price: 4800, category: 'sushiburger', desc: 'Crea tu roll perfecto. Elige envoltura, proteína y agregados desde el creador interactivo.', badge: 'Personalizable', badgeType: 'best', img: 'assets/hero.jpg' },
+  { id: 'handroll-1', title: '1 Handroll', price: 4000, category: 'sushiburger', desc: 'Handroll tradicional armado a tu gusto.', badge: '', img: 'assets/handroll.jpg' },
+  { id: 'handroll-3', title: '3 Handrolls', price: 11500, category: 'sushiburger', desc: 'Armados a tu gusto. Elige 1 proteína + 2 agregados por handroll.', badge: 'Promo', badgeType: 'hot', img: 'assets/promo_handroll.jpg' },
+  { id: 'chicken-burger', title: 'Chicken Burger', price: 8000, category: 'sushiburger', desc: 'Pollo apanado, palta, queso crema, cebollín y salsas.', badge: 'Clásica', img: 'assets/sushiburger.png' },
+  { id: 'happy-burger', title: 'Happy Burger', price: 8000, category: 'sushiburger', desc: 'La favorita de la casa, súper contundente.', badge: 'De la Casa', badgeType: 'best', img: 'assets/sushiburger.png' },
+  { id: 'marina-burger', title: 'Marina Burger', price: 8000, category: 'sushiburger', desc: 'Camarón apanado, palta, queso y más.', badge: '', img: 'assets/sushiburger.png' },
+  { id: 'arma-burger', title: 'Arma tú Burger', price: 8500, category: 'sushiburger', desc: 'Combina tus ingredientes favoritos en una deliciosa base de arroz frito.', badge: 'A tu Gusto', img: 'assets/sushiburger.png' },
 
-  // === HANDROLL A TU GUSTO (Foto 4 medio) ===
-  {
-    id: 'handroll-1x',
-    title: 'Handroll A Tu Gusto (1x)',
-    price: 3500,
-    category: 'sushiburger',
-    desc: '1 proteína (pollo, camarón, churrasco, kanikama) + 2 agregados (palta, queso, ciboulette, cebollín, pimentón, palmito, champiñón, aceituna). *Salmón +$1.000, apanado/teriyaki $800.',
-    badge: '',
-    img: 'assets/appetizer.jpg'
-  },
-  {
-    id: 'handroll-3x',
-    title: 'Promo 3 Handrolls A Tu Gusto',
-    price: 10000,
-    category: 'sushiburger',
-    desc: '3 Handrolls a tu gusto. Cada uno con 1 proteína + 2 agregados a tu elección. *Ingrediente adicional: vegetal $500, proteína $800.',
-    badge: 'BEST SELLER',
-    badgeType: 'best',
-    img: 'assets/appetizer.jpg'
-  },
+  // === GOHAN ===
+  { id: 'chicken-gohan', title: 'Chicken Gohan', price: 6500, category: 'gohan', desc: 'Pollo apanado sobre base de arroz, acompañado de palta, queso y salsas.', badge: '', img: 'assets/gohan.png' },
+  { id: 'happy-gohan', title: 'Happy Gohan', price: 6500, category: 'gohan', desc: 'Nuestro Gohan estrella con los mejores ingredientes.', badge: 'De la Casa', badgeType: 'best', img: 'assets/gohan.png' },
+  { id: 'marino-gohan', title: 'Marino Gohan', price: 6500, category: 'gohan', desc: 'Con deliciosos camarones frescos o apanados.', badge: '', img: 'assets/gohan.png' },
+  { id: 'arma-gohan', title: 'Arma tú Gohan', price: 7000, category: 'gohan', desc: 'Elige tus proteínas y agregados sobre una generosa base de arroz.', badge: 'Personalizable', img: 'assets/gohan.png' },
 
-  // === SUSHIBURGERS (Foto 5 arriba) ===
-  {
-    id: 'happy-burger',
-    title: 'Happy Burger (Churrasco)',
-    price: 7000,
-    category: 'sushiburger',
-    desc: 'Churrasco, palta, queso, cebollín, palmito.',
-    badge: 'De la Casa',
-    badgeType: 'hot',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'chicken-burger',
-    title: 'Chicken Burger (Pollo)',
-    price: 7000,
-    category: 'sushiburger',
-    desc: 'Pollo, palta, queso, cebollín, champiñón.',
-    badge: 'Clásica',
-    badgeType: 'best',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'marina-burger',
-    title: 'Marina Burger (Camarón)',
-    price: 7000,
-    category: 'sushiburger',
-    desc: 'Camarón, palta, queso, cebollín, aceituna.',
-    badge: '',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'arma-sushiburger',
-    title: 'Arma Tu Sushiburger (A Tu Gusto)',
-    price: 8000,
-    category: 'sushiburger',
-    desc: '1 proteína (pollo, pollo apanado, pollo teriyaki, camarón, camarón apanado, churrasco, kanikama, kanikama apanado) + 4 agregados. *Salmón +$1.000. Extra vegetal $500, proteína $800.',
-    badge: 'Personalizable',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'promo-2-burgers-sugeridas',
-    title: '2 Sushiburger Sugeridas',
-    price: 13500,
-    category: 'sushiburger',
-    desc: 'Elige 2 entre Happy Burger, Chicken Burger o Marina Burger.',
-    badge: 'Promo Dúo',
-    badgeType: 'best',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'promo-2-burgers-gusto',
-    title: '2 Sushiburger A Tu Gusto',
-    price: 15000,
-    category: 'sushiburger',
-    desc: 'Arma a gusto 2 sushiburgers con tus ingredientes favoritos.',
-    badge: '',
-    img: 'assets/sushiburger.jpg'
-  },
-
-  // === GOHAN (Foto 4 abajo) ===
-  {
-    id: 'chicken-gohan',
-    title: 'Chicken Gohan Best Seller',
-    price: 6000,
-    category: 'gohan',
-    desc: 'Pollo, palta, queso, cebollín. *Ingrediente extra: vegetal $500, proteína $800, salmón $1.000.',
-    badge: 'BEST SELLER',
-    badgeType: 'best',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'happy-gohan',
-    title: 'Happy Gohan',
-    price: 6000,
-    category: 'gohan',
-    desc: 'Churrasco, palta, queso, cebollín. *Ingrediente extra: vegetal $500, proteína $800, salmón $1.000.',
-    badge: '',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'marino-gohan',
-    title: 'Marino Gohan',
-    price: 6000,
-    category: 'gohan',
-    desc: 'Camarón, aceituna, queso, palta. *Ingrediente extra: vegetal $500, proteína $800, salmón $1.000.',
-    badge: '',
-    img: 'assets/sushiburger.jpg'
-  },
-  {
-    id: 'gohan-a-gusto',
-    title: 'Gohan A Tu Gusto',
-    price: 6500,
-    category: 'gohan',
-    desc: 'Elige 2 proteínas (pollo, pollo apanado, pollo teriyaki, camarón, camarón apanado, churrasco, kanikama, kanikama apanado, *salmón $1.000) + 3 agregados (queso, palta, cebollín, ciboulette, champiñón, pimentón, palmito, aceituna). *Extra: vegetal $500, proteína $800.',
-    badge: 'Personalizable',
-    img: 'assets/sushiburger.jpg'
-  },
-
-  // === ROLLS SIN ARROZ (Foto 5 abajo) ===
-  {
-    id: 'sake-roll',
-    title: 'Sake Roll',
-    price: 8000,
-    category: 'sinarroz',
-    desc: 'Env. Salmón: camarón apanado, palta, queso, pimentón.',
-    badge: 'Premium',
-    badgeType: 'best',
-    img: 'assets/hero.jpg'
-  },
-  {
-    id: 'cheese-roll',
-    title: 'Cheese Roll',
-    price: 7000,
-    category: 'sinarroz',
-    desc: 'Env. Queso: churrasco, palta, queso, cebollín, pimentón.',
-    badge: '',
-    img: 'assets/hero.jpg'
-  },
-  {
-    id: 'avocado-roll',
-    title: 'Avocado Roll',
-    price: 7000,
-    category: 'sinarroz',
-    desc: 'Env. Palta: salmón, camarón, palta, queso, cebollín.',
-    badge: '',
-    img: 'assets/hero.jpg'
-  },
-  {
-    id: 'crunch-roll',
-    title: 'Crunch Roll',
-    price: 7000,
-    category: 'sinarroz',
-    desc: 'Frito: pollo, queso, palta, cebollín.',
-    badge: 'Frito Crunch',
-    badgeType: 'hot',
-    img: 'assets/promo50.jpg'
-  }
+  // === ROLLS SIN ARROZ & ROLLS DE LA CASA ===
+  { id: 'acevi-roll', title: 'Acevi Roll', price: 6000, category: 'sinarroz', desc: 'Roll de la Casa cubierto con nuestra exquisita salsa acevichada.', badge: 'De la Casa', img: 'assets/hero.jpg' },
+  { id: 'spicy-roll', title: 'Spicy Roll', price: 6300, category: 'sinarroz', desc: 'Roll de la Casa con un toque picante.', badge: 'Picante', img: 'assets/hero.jpg' },
+  { id: 'mexa-roll', title: 'Mexa Roll', price: 6000, category: 'sinarroz', desc: 'Sabores inspirados en México, estilo Happy Sushi.', badge: '', img: 'assets/hero.jpg' },
+  { id: 'dinamita-roll', title: 'Dinamita Roll', price: 6800, category: 'sinarroz', desc: 'Una explosión de sabor en tu boca.', badge: 'Explosivo', badgeType: 'hot', img: 'assets/hero.jpg' },
+  { id: 'champi-roll', title: 'Champi Roll', price: 6000, category: 'sinarroz', desc: 'Delicioso roll con champiñones.', badge: '', img: 'assets/hero.jpg' },
+  { id: 'crunch-roll', title: 'Crunch Roll (Sin Arroz)', price: 7000, category: 'sinarroz', desc: 'Roll sin arroz, crujiente y frito.', badge: 'Sin Arroz', img: 'assets/hero.jpg' },
+  { id: 'cheese-roll', title: 'Cheese Roll (Sin Arroz)', price: 7000, category: 'sinarroz', desc: 'Roll sin arroz envuelto en extra queso crema.', badge: 'Sin Arroz', img: 'assets/hero.jpg' },
+  { id: 'avocado-roll', title: 'Avocado Roll (Sin Arroz)', price: 7000, category: 'sinarroz', desc: 'Roll sin arroz cubierto con palta fresca.', badge: 'Sin Arroz', img: 'assets/hero.jpg' },
+  { id: 'promo-sin-arroz', title: 'Promo Sin Arroz', price: 12000, category: 'sinarroz', desc: 'Promoción especial de rolls 100% sin arroz.', badge: 'Promo', badgeType: 'best', img: 'assets/hero.jpg' }
 ];
 
 // Estado global de la aplicación
