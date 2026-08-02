@@ -92,7 +92,6 @@ function setupEventListeners() {
         document.body.style.overflow = 'auto';
       });
     });
-    setupWhatsAppCheckout();
   }
 
   // Lógica del Cambio de Tema (Light / Dark Mode)
