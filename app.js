@@ -283,8 +283,14 @@ function renderMenu() {
       card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
     });
 
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      openProductModal(item);
+    });
+
     // Botón agregar al carrito
-    card.querySelector('.btn-add').addEventListener('click', () => {
+    card.querySelector('.btn-add').addEventListener('click', (e) => {
+      e.stopPropagation();
       addToCart(item);
       showToast(`¡Agregado al pedido: ${item.title}!`);
     });
@@ -296,6 +302,74 @@ function renderMenu() {
     renderPictograms();
   }
 }
+
+// Lógica del Modal de Detalles del Producto
+let currentProductItem = null;
+
+function openProductModal(item) {
+  currentProductItem = item;
+  
+  const modalOverlay = document.getElementById('product-modal-overlay');
+  const imgEl = document.querySelector('.product-modal-img');
+  const titleEl = document.getElementById('product-modal-title');
+  const descEl = document.getElementById('product-modal-desc');
+  const badgeEl = document.getElementById('product-modal-badge');
+  const priceEl = document.getElementById('product-modal-price');
+  
+  imgEl.style.backgroundImage = `url(${item.img})`;
+  titleEl.textContent = item.title;
+  descEl.textContent = item.desc;
+  
+  if (item.badge) {
+    badgeEl.style.display = 'inline-block';
+    badgeEl.className = `card-badge ${item.badgeType || ''}`;
+    badgeEl.textContent = item.badge;
+    badgeEl.style.position = 'relative';
+    badgeEl.style.top = '0';
+    badgeEl.style.left = '0';
+    badgeEl.style.transform = 'none';
+  } else {
+    badgeEl.style.display = 'none';
+  }
+  
+  priceEl.textContent = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(item.price);
+  
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const prodModalOverlay = document.getElementById('product-modal-overlay');
+  const closeProdBtn = document.getElementById('close-product-modal-btn');
+  const addProdBtn = document.getElementById('product-modal-add-btn');
+  
+  if (closeProdBtn) {
+    closeProdBtn.addEventListener('click', () => {
+      prodModalOverlay.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  }
+  
+  if (prodModalOverlay) {
+    prodModalOverlay.addEventListener('click', (e) => {
+      if (e.target === prodModalOverlay) {
+        prodModalOverlay.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+  
+  if (addProdBtn) {
+    addProdBtn.addEventListener('click', () => {
+      if (currentProductItem) {
+        addToCart(currentProductItem);
+        showToast(`¡Agregado al pedido: ${currentProductItem.title}!`);
+        prodModalOverlay.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+});
 
 // Función para mostrar una notificación flotante (Toast)
 function showToast(message) {

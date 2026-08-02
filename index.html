@@ -382,7 +382,24 @@
     </div>
   </div>
 
-  <!-- Modal Wizard "Crea Tu Roll / Sushiburger" -->
+  <!-- MODAL DE DETALLES DEL PRODUCTO -->
+  <div class="modal-overlay" id="product-modal-overlay">
+    <div class="modal-content product-modal-content" style="padding: 0; overflow: hidden; position: relative;">
+      <button class="close-btn" id="close-product-modal-btn" aria-label="Cerrar detalles" style="position: absolute; top: 15px; right: 15px; z-index: 10; background: rgba(0,0,0,0.5); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(5px);">&times;</button>
+      <div class="product-modal-img" style="width: 100%; height: 250px; background-size: cover; background-position: center;"></div>
+      <div style="padding: 24px;">
+        <div id="product-modal-badge" style="display: none; margin-bottom: 8px;"></div>
+        <h3 id="product-modal-title" class="font-heading" style="font-size: 24px; color: var(--text-main); margin-bottom: 8px;">Título</h3>
+        <p id="product-modal-desc" style="color: var(--text-muted); font-size: 15px; line-height: 1.5; margin-bottom: 24px;">Descripción del producto</p>
+        <button class="btn btn-primary" id="product-modal-add-btn" style="width: 100%; font-size: 16px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span>Agregar al Pedido</span>
+          <span id="product-modal-price" style="font-weight: 700;">$0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIZARD: CREADOR INTERACTIVO DE ROLLS -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal-content">
       <div class="modal-header" style="flex-direction: column; align-items: flex-start; gap: 10px;">
