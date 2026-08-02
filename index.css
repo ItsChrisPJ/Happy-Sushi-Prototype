@@ -1481,7 +1481,16 @@ h1, h2, h3, h4, .font-heading {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
+    padding-top: 10px;
+    position: sticky;
+    top: 60px; /* Debajo de la navbar */
+    z-index: 100;
+    background: var(--bg-main);
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .filter-tabs::-webkit-scrollbar {
@@ -1543,10 +1552,24 @@ h1, h2, h3, h4, .font-heading {
 
   .options-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 8px;
-  }
-
   .option-btn {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+/* Animations */
+@keyframes cart-bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  50% { transform: scale(0.9); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.cart-bounce-active {
+  animation: cart-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
     padding: 10px 8px;
     font-size: 12px;
   }
