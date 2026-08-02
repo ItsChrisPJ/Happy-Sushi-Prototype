@@ -31,6 +31,24 @@
   --font-main: 'Manrope', sans-serif;
 }
 
+[data-theme="light"] {
+  --bg-pure: #f8f9fb;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-light: rgba(0, 0, 0, 0.15);
+  --glass-highlight: rgba(0, 0, 0, 0.03);
+  
+  --brand-red: #e60000;
+  --brand-red-solid: #ff3333;
+  --brand-red-glow: transparent;
+  
+  --text-main: #1a1a2e;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-dim: rgba(0, 0, 0, 0.4);
+  
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
