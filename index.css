@@ -557,7 +557,7 @@ h1, h2, h3, h4, .font-heading {
 
 .search-input {
   width: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   padding: 14px 20px 14px 48px;
