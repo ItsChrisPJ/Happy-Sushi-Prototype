@@ -267,13 +267,17 @@
 
   <!-- Mobile Bottom Nav -->
   <nav class="bottom-nav glass-panel">
-    <a href="#hero" class="bottom-nav-item active">
+    <a href="#menu" class="bottom-nav-item active">
       <span data-picto="chopsticks"></span>
-      <span class="nav-label">Inicio</span>
-    </a>
-    <a href="#menu" class="bottom-nav-item">
-      <span data-picto="takeout"></span>
       <span class="nav-label">Menú</span>
+    </a>
+    <a href="#promos" class="bottom-nav-item" onclick="document.querySelector('[data-category=\'promos\']').click(); window.location.href='#menu';">
+      <span data-picto="promos"></span>
+      <span class="nav-label">Promos</span>
+    </a>
+    <a href="#" class="bottom-nav-item" onclick="alert('Perfil de usuario próximamente 🚀'); return false;">
+      <span data-picto="user"></span>
+      <span class="nav-label">Perfil</span>
     </a>
     <button class="bottom-nav-item open-cart-btn">
       <div style="position: relative;">
