@@ -146,13 +146,15 @@ function setupEventListeners() {
   });
 
   // Controles de apertura/cierre de carrito
-  const openCartBtn = document.getElementById('open-cart-btn');
+  const openCartBtns = document.querySelectorAll('.open-cart-btn');
   const closeCartBtn = document.getElementById('close-cart-btn');
   const cartOverlay = document.getElementById('cart-overlay');
 
-  openCartBtn.addEventListener('click', () => {
-    cartOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  openCartBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
   });
 
   closeCartBtn.addEventListener('click', () => {
@@ -463,12 +465,12 @@ function addToCart(item, customTitle = null) {
   }
 
   if (navigator.vibrate) navigator.vibrate(50);
-  const cartBtn = document.getElementById('open-cart-btn');
-  if (cartBtn) {
-    cartBtn.classList.remove('cart-bounce-active');
-    void cartBtn.offsetWidth; // trigger reflow
-    cartBtn.classList.add('cart-bounce-active');
-  }
+  const cartBtns = document.querySelectorAll('.open-cart-btn');
+  cartBtns.forEach(btn => {
+    btn.classList.remove('cart-bounce-active');
+    void btn.offsetWidth; // trigger reflow
+    btn.classList.add('cart-bounce-active');
+  });
 
   updateCartUI();
 }
@@ -492,7 +494,7 @@ function changeQty(id, delta) {
 
 // Actualizar vista del carrito y cálculos de precio
 function updateCartUI() {
-  const countBadge = document.getElementById('cart-count');
+  const countBadges = document.querySelectorAll('.cart-count');
   const itemsContainer = document.getElementById('cart-items-container');
   const subtotalEl = document.getElementById('cart-subtotal');
   const deliveryEl = document.getElementById('cart-delivery');
@@ -501,7 +503,9 @@ function updateCartUI() {
 
   // Total de items para el badge
   const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
-  countBadge.textContent = totalQty;
+  countBadges.forEach(badge => {
+    badge.textContent = totalQty;
+  });
 
   // Subtotal de productos
   const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);

@@ -36,8 +36,8 @@
       <button class="theme-toggle-btn glass-btn" id="theme-toggle-btn" aria-label="Cambiar Tema" style="margin-right: 8px;">
         <span data-picto="sun"></span>
       </button>
-      <button class="cart-btn glass-btn" id="open-cart-btn" aria-label="Abrir Carrito">
-        <span data-picto="cart"></span> <span class="cart-badge" id="cart-count">0</span>
+      <button class="cart-btn glass-btn open-cart-btn" aria-label="Abrir Carrito">
+        <span data-picto="cart"></span> <span class="cart-badge cart-count">0</span>
       </button>
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
         <span></span><span></span><span></span>
@@ -61,7 +61,9 @@
           Disfruta del auténtico sabor que conquista Lampa. Rolls artesanales, promos gigantes y sushiburgers.
         </p>
         <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary glass-btn-primary">Ver Menú</a>
+          <a href="#menu" class="btn glass-btn-primary" style="width: 100%; max-width: 300px; font-size: 18px; padding: 18px 28px; font-weight: 800;">
+            Ver Menú y Promos <span data-picto="chopsticks"></span>
+          </a>
           <button class="btn btn-gold glass-btn-secondary" id="open-builder-hero-btn">Arma tu Roll</button>
         </div>
       </div>
@@ -262,6 +264,25 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="bottom-nav glass-panel">
+    <a href="#hero" class="bottom-nav-item active">
+      <span data-picto="chopsticks"></span>
+      <span class="nav-label">Inicio</span>
+    </a>
+    <a href="#menu" class="bottom-nav-item">
+      <span data-picto="takeout"></span>
+      <span class="nav-label">Menú</span>
+    </a>
+    <button class="bottom-nav-item open-cart-btn">
+      <div style="position: relative;">
+        <span data-picto="cart"></span>
+        <span class="cart-badge cart-count" style="position: absolute; top: -8px; right: -12px;">0</span>
+      </div>
+      <span class="nav-label">Carrito</span>
+    </button>
+  </nav>
 
   <!-- Footer -->
   <footer class="footer">
