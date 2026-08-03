@@ -227,13 +227,13 @@ const PICTO = {
     <path d="M12 2 C12 2 8 6 8 14 L6 16 L8 18 L10 16 L14 16 L16 18 L18 16 L16 14 C16 6 12 2 12 2 Z" fill="#E50914" stroke="#ffffff" stroke-width="1.5"/>
     <circle cx="12" cy="10" r="2" fill="#ffb703"/>
     <path d="M9 20 L12 22 L15 20" fill="#ffb703" stroke="#ffb703" stroke-width="1.5"/>
-  </svg>`
+  </svg>`,
 };
 
 // Función para inyectar automáticamente pictogramas SVG en elementos con el atributo data-picto
 function renderPictograms() {
-  document.querySelectorAll('[data-picto]').forEach(el => {
-    const iconName = el.getAttribute('data-picto');
+  document.querySelectorAll("[data-picto]").forEach((el) => {
+    const iconName = el.getAttribute("data-picto");
     if (PICTO[iconName]) {
       el.innerHTML = PICTO[iconName];
     }
@@ -241,6 +241,6 @@ function renderPictograms() {
 }
 
 // Inicializar cuando el DOM esté listo
-if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', renderPictograms);
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", renderPictograms);
 }
