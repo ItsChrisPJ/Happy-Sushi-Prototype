@@ -128,9 +128,130 @@ function setupEventListeners() {
     }
   });
 
-  // Cambios en zona de despacho
-  const deliveryZoneSelect = document.getElementById("delivery-zone");
-  deliveryZoneSelect.addEventListener("change", updateCartUI);
+  // Configuración de Delivery con OpenStreetMap
+  window.calculatedDeliveryCost = 0;
+  window.selectedDeliveryDistance = 0;
+
+  const deliveryRadios = document.querySelectorAll(
+    'input[name="delivery-method"]',
+  );
+  const addressContainer = document.getElementById("address-input-container");
+  const addressInput = document.getElementById("delivery-address");
+  const suggestionsBox = document.getElementById("address-suggestions");
+  const costIndicator = document.getElementById("delivery-cost-indicator");
+
+  // Coordenadas del Local Happy Sushi
+  const STORE_LAT = -33.2865287;
+  const STORE_LON = -70.8737792;
+
+  let debounceTimeout;
+
+  deliveryRadios.forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      // Actualizar clases activas visuales
+      document
+        .querySelectorAll(".delivery-radio-label")
+        .forEach((lbl) => lbl.classList.remove("active"));
+      e.target.closest("label").classList.add("active");
+
+      if (e.target.value === "pickup") {
+        addressContainer.style.display = "none";
+        window.calculatedDeliveryCost = 0;
+        window.selectedDeliveryDistance = 0;
+      } else {
+        addressContainer.style.display = "block";
+        // Reset if address is empty
+        if (!addressInput.value) {
+          window.calculatedDeliveryCost = 0;
+          window.selectedDeliveryDistance = 0;
+          costIndicator.style.display = "none";
+        }
+      }
+      updateCartUI();
+    });
+  });
+
+  addressInput.addEventListener("input", (e) => {
+    const query = e.target.value;
+    clearTimeout(debounceTimeout);
+
+    if (query.length < 4) {
+      suggestionsBox.style.display = "none";
+      return;
+    }
+
+    debounceTimeout = setTimeout(() => {
+      // Usar Nominatim de OpenStreetMap para buscar (limitado a Chile)
+      fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=cl`,
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          suggestionsBox.innerHTML = "";
+          if (data.length > 0) {
+            suggestionsBox.style.display = "block";
+            data.forEach((place) => {
+              const li = document.createElement("li");
+              li.className = "suggestion-item";
+              li.innerHTML = `<span data-picto="location"></span> <span>${place.display_name}</span>`;
+              li.addEventListener("click", () => {
+                addressInput.value = place.display_name;
+                suggestionsBox.style.display = "none";
+                calculateDistanceAndCost(place.lat, place.lon);
+              });
+              suggestionsBox.appendChild(li);
+            });
+          } else {
+            suggestionsBox.style.display = "none";
+          }
+        })
+        .catch((err) => console.error(err));
+    }, 500);
+  });
+
+  function calculateDistanceAndCost(destLat, destLon) {
+    costIndicator.style.display = "block";
+    costIndicator.textContent = "Calculando distancia...";
+
+    // Usar OSRM para calcular la distancia en ruta
+    fetch(
+      `https://router.project-osrm.org/route/v1/driving/${STORE_LON},${STORE_LAT};${destLon},${destLat}?overview=false`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.code === "Ok" && data.routes.length > 0) {
+          const distanceMeters = data.routes[0].distance;
+          window.selectedDeliveryDistance = (distanceMeters / 1000).toFixed(1);
+
+          // Lógica de Precios
+          let cost = -1;
+          if (distanceMeters <= 800) cost = 1000;
+          else if (distanceMeters <= 2500) cost = 1500;
+          else if (distanceMeters <= 3500) cost = 2000;
+          else if (distanceMeters <= 4500) cost = 2500;
+          else if (distanceMeters <= 5500) cost = 3000;
+          else if (distanceMeters <= 6500) cost = 3500;
+          else if (distanceMeters <= 7500) cost = 4000;
+          else if (distanceMeters <= 8500) cost = 4500;
+          else if (distanceMeters <= 9500) cost = 5000;
+
+          if (cost === -1) {
+            costIndicator.innerHTML = `<span style="color:var(--brand-red)">⚠️ Ubicación fuera de zona de reparto (Máx 9.5km). Distancia: ${window.selectedDeliveryDistance}km. Consulta por WhatsApp.</span>`;
+            window.calculatedDeliveryCost = 0;
+          } else {
+            costIndicator.innerHTML = `📍 Distancia: ${window.selectedDeliveryDistance} km. Costo de envío: <strong>$${cost.toLocaleString("es-CL")}</strong>`;
+            window.calculatedDeliveryCost = cost;
+          }
+          updateCartUI();
+        } else {
+          costIndicator.textContent = "No se pudo calcular la ruta.";
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        costIndicator.textContent = "Error al calcular la distancia.";
+      });
+  }
 
   // Cambios en medio de pago (para mostrar/ocultar datos de transferencia)
   const paymentMethodSelect = document.getElementById("payment-method");
@@ -307,7 +428,6 @@ function renderMenu() {
 
 // Lógica del Modal de Detalles del Producto
 let currentProductItem = null;
-
 
 // ==========================================
 // 3. MODALS & TOASTS
@@ -492,23 +612,16 @@ function updateCartUI() {
   // Subtotal de productos
   const subtotal = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
 
-  // Cálculo de envío según sector de Lampa
-  const selectedOption = zoneSelect.options[zoneSelect.selectedIndex];
-  const zoneName = selectedOption.getAttribute("data-name");
-  let deliveryCost = parseInt(selectedOption.value, 10);
-  const minFree = parseInt(
-    selectedOption.getAttribute("data-minfree") || "0",
-    10,
-  );
+  // Cálculo de envío con la nueva lógica
+  let deliveryCost = window.calculatedDeliveryCost || 0;
 
-  if (minFree > 0 && subtotal >= minFree && subtotal > 0) {
-    deliveryCost = 0; // Envío Gratis en Lampa Centro por compras > $20.000
-  }
-
-  // Mostrar u ocultar campo de dirección si es retiro en local
+  // Ocultar campo de notas/dirección exacta si es retiro (opcional)
   const addressGroup = document.getElementById("address-group");
-  if (addressGroup) {
-    if (zoneName === "Retiro en Local") {
+  const deliveryMethod = document.querySelector(
+    'input[name="delivery-method"]:checked',
+  );
+  if (addressGroup && deliveryMethod) {
+    if (deliveryMethod.value === "pickup") {
       addressGroup.style.display = "none";
     } else {
       addressGroup.style.display = "block";
@@ -809,11 +922,17 @@ function sendOrderToWhatsApp() {
     return;
   }
 
-  const zoneSelect = document.getElementById("delivery-zone");
-  const selectedOption = zoneSelect.options[zoneSelect.selectedIndex];
-  const zoneName = selectedOption.getAttribute("data-name");
+  const deliveryMethod = document.querySelector(
+    'input[name="delivery-method"]:checked',
+  ).value;
+  const isDelivery = deliveryMethod === "delivery";
   const paymentMethod = document.getElementById("payment-method").value;
-  const addressInput = document.getElementById("customer-address").value.trim();
+  const addressMainInput = document
+    .getElementById("delivery-address")
+    .value.trim();
+  const addressNotesInput = document
+    .getElementById("customer-address")
+    .value.trim();
   const customerNameInput = document.getElementById("customer-name")
     ? document.getElementById("customer-name").value.trim()
     : "";
@@ -826,26 +945,31 @@ function sendOrderToWhatsApp() {
     return;
   }
 
-  // Si no es retiro en local, sugerir poner dirección
-  if (zoneName !== "Retiro en Local" && !addressInput) {
+  // Validar dirección si es despacho
+  if (isDelivery && !addressMainInput) {
     showToast(
-      "Por favor ingresa tu dirección exacta para el despacho en Lampa.",
+      "Por favor ingresa tu dirección de envío y selecciona una opción válida.",
     );
-    document.getElementById("customer-address").focus();
+    document.getElementById("delivery-address").focus();
     return;
   }
 
-  // Cálculos de subtotal y envío
+  // Cálculos
   const subtotal = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
-  let deliveryCost = parseInt(selectedOption.value, 10);
-  const minFree = parseInt(
-    selectedOption.getAttribute("data-minfree") || "0",
-    10,
-  );
+  let deliveryCost = isDelivery ? window.calculatedDeliveryCost || 0 : 0;
 
-  if (minFree > 0 && subtotal >= minFree) {
-    deliveryCost = 0;
+  // Validar que no haya error de "Fuera de zona" (calculado en 0 y con distancia mostrada)
+  if (
+    isDelivery &&
+    deliveryCost === 0 &&
+    window.selectedDeliveryDistance > 9.5
+  ) {
+    showToast(
+      "La dirección indicada está fuera de nuestra zona de reparto (Max 9.5km). Consulta disponibilidad al local.",
+    );
+    return;
   }
+
   const total = subtotal + deliveryCost;
   const fmt = (val) =>
     new Intl.NumberFormat("es-CL", {

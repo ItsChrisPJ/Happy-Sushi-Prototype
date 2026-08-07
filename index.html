@@ -10,41 +10,62 @@
       name="description"
       content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local."
     />
-    <meta name="keywords" content="sushi, lampa, delivery, promociones, sushiburger, gohan, comida, restaurante" />
-    
+    <meta
+      name="keywords"
+      content="sushi, lampa, delivery, promociones, sushiburger, gohan, comida, restaurante"
+    />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://happysushi.cl/" />
-    <meta property="og:title" content="HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos" />
-    <meta property="og:description" content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local." />
-    <meta property="og:image" content="https://happysushi.cl/assets/logo.webp" />
+    <meta
+      property="og:title"
+      content="HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos"
+    />
+    <meta
+      property="og:description"
+      content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local."
+    />
+    <meta
+      property="og:image"
+      content="https://happysushi.cl/assets/logo.webp"
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://happysushi.cl/" />
-    <meta property="twitter:title" content="HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos" />
-    <meta property="twitter:description" content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local." />
-    <meta property="twitter:image" content="https://happysushi.cl/assets/logo.webp" />
+    <meta
+      property="twitter:title"
+      content="HAPPY SUSHI LAMPA | El Mejor Sushi de la Zona - Delivery & Promos"
+    />
+    <meta
+      property="twitter:description"
+      content="Happy Sushi en Lampa, Región Metropolitana. Promociones contundentes, recién fritos, sushiburgers y gohan. Despacho a domicilio en Lampa y retiro en local."
+    />
+    <meta
+      property="twitter:image"
+      content="https://happysushi.cl/assets/logo.webp"
+    />
 
     <!-- Schema.org for Local Business -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Happy Sushi Lampa",
-      "image": "https://happysushi.cl/assets/logo.webp",
-      "@id": "",
-      "url": "https://happysushi.cl/",
-      "telephone": "+56971223025",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lampa",
-        "addressRegion": "Región Metropolitana",
-        "addressCountry": "CL"
-      },
-      "servesCuisine": "Sushi",
-      "priceRange": "$$"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Happy Sushi Lampa",
+        "image": "https://happysushi.cl/assets/logo.webp",
+        "@id": "",
+        "url": "https://happysushi.cl/",
+        "telephone": "+56971223025",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lampa",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "servesCuisine": "Sushi",
+        "priceRange": "$$"
+      }
     </script>
 
     <link rel="stylesheet" href="css/main.css" />
@@ -589,23 +610,106 @@
 
           <!-- Order Form Fields (moved from footer to enable scrolling) -->
           <div class="mt-4 pt-4 border-t-light">
-            <div class="form-group">
-              <label class="form-label" for="delivery-zone"
-                ><span data-picto="location"></span> Zona de Reparto en
-                Lampa:</label
+            <div class="form-group" id="delivery-method-group">
+              <label class="form-label"
+                ><span data-picto="truck"></span> Método de Entrega:</label
               >
-              <select id="delivery-zone" class="form-select">
-                <option
-                  value="1500"
-                  data-name="Despacho en Lampa"
-                  data-minfree="20000"
+              <div
+                class="delivery-options"
+                style="
+                  display: flex;
+                  gap: 10px;
+                  margin-top: 8px;
+                  margin-bottom: 12px;
+                "
+              >
+                <label
+                  style="
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid var(--border-light);
+                    border-radius: var(--radius-md);
+                    text-align: center;
+                    cursor: pointer;
+                  "
+                  class="delivery-radio-label active"
                 >
-                  Despacho en Lampa ($1.500 | Gratis > $20.000)
-                </option>
-                <option value="0" data-name="Retiro en Local">
-                  Retiro en Local - Arturo Prat 1377 ($0)
-                </option>
-              </select>
+                  <input
+                    type="radio"
+                    name="delivery-method"
+                    value="delivery"
+                    checked
+                    style="display: none"
+                  />
+                  🛵 Despacho
+                </label>
+                <label
+                  style="
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid var(--border-light);
+                    border-radius: var(--radius-md);
+                    text-align: center;
+                    cursor: pointer;
+                  "
+                  class="delivery-radio-label"
+                >
+                  <input
+                    type="radio"
+                    name="delivery-method"
+                    value="pickup"
+                    style="display: none"
+                  />
+                  🏪 Retiro
+                </label>
+              </div>
+
+              <div id="address-input-container" style="position: relative">
+                <label class="form-label" for="delivery-address"
+                  ><span data-picto="location"></span> Dirección de
+                  Envío:</label
+                >
+                <input
+                  type="text"
+                  id="delivery-address"
+                  class="form-input"
+                  placeholder="Escribe tu calle y número, Lampa..."
+                  autocomplete="off"
+                />
+                <ul
+                  id="address-suggestions"
+                  style="
+                    display: none;
+                    position: absolute;
+                    z-index: 1000;
+                    background: rgba(20, 20, 20, 0.95);
+                    backdrop-filter: blur(10px);
+                    width: 100%;
+                    max-height: 250px;
+                    overflow-y: auto;
+                    list-style: none;
+                    padding: 5px;
+                    margin: 5px 0 0 0;
+                    border: 1px solid var(--border-light);
+                    border-radius: var(--radius-md);
+                    top: 100%;
+                    left: 0;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+                  "
+                ></ul>
+
+                <div
+                  id="delivery-cost-indicator"
+                  style="
+                    font-size: 13px;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                    display: none;
+                  "
+                >
+                  Calculando distancia...
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
@@ -668,14 +772,14 @@
                 class="form-label"
                 id="address-label"
                 for="customer-address"
-                ><span data-picto="house"></span> Dirección exacta y
-                notas:</label
+                ><span data-picto="house"></span> Depto / Casa / Notas
+                adicionales:</label
               >
               <input
                 type="text"
                 id="customer-address"
                 class="form-input"
-                placeholder="Ej: Calle Principal 123, Casa 4..."
+                placeholder="Ej: Depto 15, Casa azul, Tocar timbre fuerte..."
                 autocomplete="off"
               />
             </div>
