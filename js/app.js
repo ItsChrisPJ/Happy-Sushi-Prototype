@@ -53,36 +53,6 @@ function setupEventListeners() {
     });
   }
 
-  // Lógica del Cambio de Tema (Light / Dark Mode)
-  const themeToggleBtn = document.getElementById("theme-toggle-btn");
-  if (themeToggleBtn) {
-    const iconSpan = themeToggleBtn.querySelector("span");
-
-    // Cargar tema guardado o usar oscuro por defecto
-    const savedTheme = localStorage.getItem("hs_theme") || "dark";
-    if (savedTheme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-      iconSpan.setAttribute("data-picto", "moon");
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-      if (navigator.vibrate) navigator.vibrate(50);
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "light") {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("hs_theme", "dark");
-        iconSpan.setAttribute("data-picto", "sun");
-      } else {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("hs_theme", "light");
-        iconSpan.setAttribute("data-picto", "moon");
-      }
-      if (typeof renderPictograms === "function") {
-        renderPictograms();
-      }
-    });
-  }
-
   // Pestañas de categoría
   const tabs = document.querySelectorAll(".filter-tab");
   tabs.forEach((tab) => {
