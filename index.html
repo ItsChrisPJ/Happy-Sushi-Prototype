@@ -70,8 +70,8 @@
 
     <link rel="stylesheet" href="css/main.css" />
     <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#0d0d0d" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#e60000" />
+    <link rel="apple-touch-icon" href="assets/logo.webp" />
   </head>
   <body>
     <!-- Aurora Background -->
@@ -1072,6 +1072,29 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- PWA Install Banner -->
+    <div id="pwa-install-banner" class="pwa-banner" style="display: none">
+      <div class="pwa-banner-content">
+        <img src="assets/logo.webp" alt="App Icon" class="pwa-icon" />
+        <div class="pwa-text">
+          <strong>¡Instala Happy Sushi!</strong>
+          <span>Para pedir más rápido en el futuro.</span>
+        </div>
+      </div>
+      <div class="pwa-actions">
+        <button id="pwa-install-btn" class="btn glass-btn-primary p-2">
+          Instalar
+        </button>
+        <button
+          id="pwa-dismiss-btn"
+          class="btn p-2"
+          style="background: transparent; color: var(--text-muted)"
+        >
+          ✖
+        </button>
       </div>
     </div>
 

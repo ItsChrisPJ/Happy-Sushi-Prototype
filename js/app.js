@@ -1087,3 +1087,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ==========================================
+// PWA INSTALLATION LOGIC
+// ==========================================
+let deferredPrompt;
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("sw.js")
+      .then((reg) => console.log("Service Worker registrado", reg))
+      .catch((err) => console.error("Error al registrar Service Worker", err));
+  });
+}
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+
+  // Show the install banner
+  const banner = document.getElementById("pwa-install-banner");
+  if (banner) {
+    banner.style.display = "flex";
+  }
+});
+
+const installBtn = document.getElementById("pwa-install-btn");
+const dismissBtn = document.getElementById("pwa-dismiss-btn");
+const banner = document.getElementById("pwa-install-banner");
+
+if (installBtn) {
+  installBtn.addEventListener("click", async () => {
+    if (banner) banner.style.display = "none";
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log("User response to the install prompt:", outcome);
+      deferredPrompt = null;
+    }
+  });
+}
+
+if (dismissBtn) {
+  dismissBtn.addEventListener("click", () => {
+    if (banner) banner.style.display = "none";
+  });
+}
