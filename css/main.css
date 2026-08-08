@@ -1345,6 +1345,8 @@ h4,
 .wizard-nav-buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .modal-price-calc {
