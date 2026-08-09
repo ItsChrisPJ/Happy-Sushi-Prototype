@@ -958,15 +958,20 @@ function sendOrderToWhatsApp() {
 
   msg += `\n*--- RESUMEN DE PAGO ---*\n`;
   msg += `- *Subtotal:* ${fmt(subtotal)}\n`;
-  msg += `- *Sector / Despacho:* ${zoneName} (${deliveryCost === 0 ? "¡GRATIS!" : fmt(deliveryCost)})\n`;
+
+  const dispatchText = isDelivery ? "Despacho a domicilio" : "Retiro en Local";
+  msg += `- *Sector / Despacho:* ${dispatchText} (${deliveryCost === 0 ? (isDelivery ? "¡GRATIS!" : "N/A") : fmt(deliveryCost)})\n`;
   msg += `- *TOTAL A PAGAR:* *${fmt(total)}*\n\n`;
 
   msg += `*--- DATOS DE CLIENTE Y ENTREGA ---*\n`;
   msg += `*A nombre de:* ${customerNameInput}\n`;
-  if (zoneName === "Retiro en Local") {
+  if (!isDelivery) {
     msg += `*Modalidad:* Retiro presencial por el local (Arturo Prat 1377, Lampa)\n`;
   } else {
-    msg += `*Dirección de Entrega:* ${addressInput}\n`;
+    msg += `*Dirección de Entrega:* ${addressMainInput}\n`;
+    if (addressNotesInput) {
+      msg += `*Notas de dirección:* ${addressNotesInput}\n`;
+    }
   }
   msg += `*Medio de Pago:* ${paymentMethod}\n\n`;
   msg += `¡Muchas gracias! Quedo atento a la confirmación de mi pedido.`;
